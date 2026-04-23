@@ -8,35 +8,35 @@
     <link rel="manifest" href="/manifest.json">
     
     <!-- SEO Meta Tags -->
-    <title>AURIX | Creative Design Studio & Portfolio</title>
-    <meta name="description" content="AURIX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions. Transforming visions into visual reality.">
-    <meta name="keywords" content="AURIX, graphic designer, branding, logo design, UI/UX, packaging design, motion graphics, web design, creative studio">
-    <meta name="author" content="AURIX">
+    <title>AUREX | Creative Design Studio & Portfolio</title>
+    <meta name="description" content="AUREX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions. Transforming visions into visual reality.">
+    <meta name="keywords" content="AUREX, graphic designer, branding, logo design, UI/UX, packaging design, motion graphics, web design, creative studio">
+    <meta name="author" content="AUREX">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="AURIX | Creative Design Studio">
+    <meta property="og:title" content="AUREX | Creative Design Studio">
     <meta property="og:description" content="Transforming visions into visual reality with professional design services.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg">
-    <meta property="og:url" content="https://aurix-design.vercel.app">
+    <meta property="og:image" content="IMG-20260403-WA0021(1).jpg">
+    <meta property="og:url" content="https://aurex-design.vercel.app">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AURIX Creative Studio">
+    <meta name="twitter:title" content="AUREX Creative Studio">
     <meta name="twitter:description" content="Professional Design Services for Brands and Businesses">
     
     <!-- PWA Meta -->
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="AURIX">
+    <meta name="apple-mobile-web-app-title" content="AUREX">
     <meta name="msapplication-TileColor" content="#6366f1">
-    <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+    <meta name="msapplication-TileImage" content="IMG-20260403-WA0021(1).jpg">
     
     <!-- Favicon -->
-    <link rel="icon" href="icons/icon-72x72.png" type="image/png">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="icon" href="IMG-20260403-WA0021(1).jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="IMG-20260403-WA0021(1).jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -182,7 +182,7 @@
             padding: 100px 0;
         }
 
-        /* Loading Screen */
+        /* ===== LOADING SCREEN ===== */
         .loading-screen {
             position: fixed;
             inset: 0;
@@ -201,37 +201,65 @@
         }
         .loading-logo {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: pulse 2s ease-in-out infinite;
+            letter-spacing: -0.02em;
+        }
+        .loading-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 12px;
+            animation: fadeInUp 1s ease 0.5s both;
         }
         .loading-bar-container {
-            width: 200px;
-            height: 3px;
+            width: 220px;
+            height: 4px;
             background: var(--border);
-            border-radius: 3px;
-            margin-top: 24px;
+            border-radius: 4px;
+            margin-top: 32px;
             overflow: hidden;
+            position: relative;
         }
         .loading-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 3px;
-            animation: loadingProgress 2s ease-in-out forwards;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 4px;
+            animation: loadingProgress 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            position: relative;
+        }
+        .loading-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
+            animation: shimmer 1s infinite;
         }
         @keyframes loadingProgress {
             0% { width: 0%; }
-            50% { width: 70%; }
+            30% { width: 40%; }
+            60% { width: 70%; }
             100% { width: 100%; }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(30px); }
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(0.95); }
+            50% { opacity: 0.8; transform: scale(0.97); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ===== HEADER & NAVIGATION ===== */
@@ -309,34 +337,38 @@
             border-radius: var(--radius-sm);
             transition: var(--transition-fast);
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .nav-link:hover, .nav-link.active {
             color: var(--primary);
             background: rgba(99, 102, 241, 0.1);
         }
 
-        /* Theme Toggle - Clean Emoji */
+        /* Theme Toggle - FAS Icon */
         .theme-toggle {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-card);
+            color: var(--text-secondary);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: var(--transition-fast);
-            user-select: none;
         }
         .theme-toggle:hover {
             transform: scale(1.1) rotate(15deg);
             border-color: var(--primary);
+            color: var(--primary);
             box-shadow: var(--shadow-glow);
         }
 
-        /* Mobile Menu Toggle - Clean Emoji */
+        /* Mobile Menu Toggle - FAS Icon */
         .menu-toggle {
             display: none;
             width: 40px;
@@ -344,15 +376,16 @@
             border-radius: 50%;
             border: 1px solid var(--border);
             background: var(--bg-card);
+            color: var(--text-secondary);
             cursor: pointer;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: var(--transition-fast);
-            user-select: none;
         }
         .menu-toggle:hover {
             background: var(--primary);
+            color: white;
             border-color: var(--primary);
         }
 
@@ -429,7 +462,7 @@
             padding: 14px 16px;
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
@@ -441,6 +474,11 @@
             background: var(--bg-card);
             color: var(--primary);
             transform: translateX(8px);
+        }
+        .mobile-nav-link i {
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
         }
 
         /* ===== HERO SECTION ===== */
@@ -511,6 +549,10 @@
         }
         @keyframes revealText {
             to { transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-description {
@@ -615,22 +657,15 @@
             margin-top: 4px;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* ===== SECTION HEADERS ===== */
         .section-header {
             text-align: center;
             margin-bottom: 64px;
         }
         .section-label {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 6px 16px;
             background: rgba(99, 102, 241, 0.1);
             border: 1px solid rgba(99, 102, 241, 0.2);
@@ -722,6 +757,9 @@
             border-radius: 50px;
             white-space: nowrap;
             box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .ceo-content {
@@ -1041,8 +1079,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            color: var(--primary);
+            font-size: 1.5rem;
             margin-bottom: 20px;
             transition: var(--transition-base);
         }
@@ -1225,7 +1262,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--primary);
             flex-shrink: 0;
         }
@@ -1301,10 +1338,11 @@
             margin-bottom: 16px;
         }
         .footer-logo-img {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 10px;
             object-fit: cover;
+            border: 2px solid var(--primary);
         }
         .footer-logo-text {
             font-family: var(--font-heading);
@@ -1322,7 +1360,7 @@
             margin-bottom: 32px;
         }
 
-        /* Footer Navigation Buttons */
+        /* Footer Navigation Buttons - HOME, PORTFOLIO, CONTACT */
         .footer-nav {
             display: flex;
             justify-content: center;
@@ -1333,15 +1371,15 @@
         .footer-nav-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
+            gap: 10px;
+            padding: 14px 32px;
             background: var(--bg-card);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             border-radius: 50px;
             color: var(--text-secondary);
             font-family: var(--font-heading);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-decoration: none;
             transition: var(--transition-fast);
             cursor: pointer;
@@ -1350,11 +1388,11 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border-color: transparent;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-glow);
         }
         .footer-nav-btn i {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .footer-social {
@@ -1364,8 +1402,8 @@
             margin-bottom: 32px;
         }
         .footer-social-link {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -1374,8 +1412,8 @@
             justify-content: center;
             color: var(--text-secondary);
             text-decoration: none;
+            font-size: 1.1rem;
             transition: var(--transition-fast);
-            font-size: 1rem;
         }
         .footer-social-link:hover {
             background: var(--primary);
@@ -1388,6 +1426,7 @@
         .footer-copyright {
             color: var(--text-muted);
             font-size: 0.85rem;
+            line-height: 1.8;
         }
         .footer-copyright a {
             color: var(--primary);
@@ -1438,6 +1477,10 @@
         .terms-header h2 {
             font-size: 1.5rem;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         .terms-header p {
             color: var(--text-secondary);
@@ -1455,6 +1498,9 @@
             font-size: 1.1rem;
             margin-bottom: 10px;
             color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .terms-section p, .terms-section ul {
             color: var(--text-secondary);
@@ -1713,6 +1759,9 @@
             .terms-content {
                 max-height: 90vh;
             }
+            .loading-logo {
+                font-size: 2.5rem;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1728,7 +1777,8 @@
 
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">AURIX</div>
+        <div class="loading-logo">AUREX</div>
+        <div class="loading-subtitle">Loading Creative Experience...</div>
         <div class="loading-bar-container">
             <div class="loading-bar-fill"></div>
         </div>
@@ -1738,35 +1788,35 @@
     <div class="terms-modal active" id="termsModal">
         <div class="terms-content">
             <div class="terms-header">
-                <h2>Welcome to AURIX</h2>
+                <h2><i class="fas fa-shield-alt"></i> Welcome to AUREX</h2>
                 <p>Please review and accept our terms to continue</p>
             </div>
             
             <div class="terms-body">
                 <div class="terms-section">
-                    <h3>Privacy Policy</h3>
+                    <h3><i class="fas fa-user-shield"></i> Privacy Policy</h3>
                     <p>We value your privacy. This website uses local storage to remember your preferences (theme, accepted terms) and service workers to enable offline functionality. We do not collect personal data without your consent.</p>
                     <ul>
-                        <li>Local storage is used for app preferences only</li>
-                        <li>No tracking cookies or analytics without consent</li>
-                        <li>Contact form data is sent directly to WhatsApp</li>
-                        <li>You can clear all data by uninstalling the app</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Local storage is used for app preferences only</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> No tracking cookies or analytics without consent</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Contact form data is sent directly to WhatsApp</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> You can clear all data by uninstalling the app</li>
                     </ul>
                 </div>
                 
                 <div class="terms-section">
-                    <h3>Terms of Service</h3>
-                    <p>By using AURIX, you agree to the following terms:</p>
+                    <h3><i class="fas fa-file-contract"></i> Terms of Service</h3>
+                    <p>By using AUREX, you agree to the following terms:</p>
                     <ul>
-                        <li>All portfolio content is copyrighted material</li>
-                        <li>Contact information is for business inquiries only</li>
-                        <li>This app may be installed on your device for offline access</li>
-                        <li>We reserve the right to update these terms at any time</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> All portfolio content is copyrighted material</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> Contact information is for business inquiries only</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> This app may be installed on your device for offline access</li>
+                        <li><i class="fas fa-check" style="color: var(--success);"></i> We reserve the right to update these terms at any time</li>
                     </ul>
                 </div>
                 
                 <div class="terms-section">
-                    <h3>PWA Installation</h3>
+                    <h3><i class="fas fa-mobile-alt"></i> PWA Installation</h3>
                     <p>This is a Progressive Web App. You may be prompted to install it on your device. Installation enables offline access and faster loading times. You can uninstall at any time through your browser settings.</p>
                 </div>
             </div>
@@ -1777,8 +1827,12 @@
                     <span>I have read and agree to the <a href="#" onclick="showPrivacyDetail()">Privacy Policy</a> and <a href="#" onclick="showTermsDetail()">Terms of Service</a>. I understand this app may be installed on my device.</span>
                 </label>
                 <div class="terms-actions">
-                    <button class="btn-secondary" onclick="declineTerms()">Decline</button>
-                    <button class="btn-primary" id="acceptTermsBtn" disabled onclick="acceptTerms()">Accept & Continue</button>
+                    <button class="btn-secondary" onclick="declineTerms()">
+                        <i class="fas fa-times"></i> Decline
+                    </button>
+                    <button class="btn-primary" id="acceptTermsBtn" disabled onclick="acceptTerms()">
+                        <i class="fas fa-check"></i> Accept & Continue
+                    </button>
                 </div>
             </div>
         </div>
@@ -1789,13 +1843,13 @@
 
     <!-- Install Button -->
     <button class="install-btn" id="installBtn">
-        <span>⬇️</span>
+        <i class="fas fa-download"></i>
         Install App
     </button>
 
     <!-- Floating Hire Me Button -->
     <a href="#contact" class="hire-me-float no-print">
-        <span>💼</span>
+        <i class="fas fa-briefcase"></i>
         Hire Me
     </a>
 
@@ -1805,14 +1859,14 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-nav-links">
-            <a href="#home" class="mobile-nav-link">🏠 Home</a>
-            <a href="#about" class="mobile-nav-link">👤 About</a>
-            <a href="#recent-projects" class="mobile-nav-link">🕐 Recent</a>
-            <a href="#portfolio" class="mobile-nav-link">💼 Portfolio</a>
-            <a href="#services" class="mobile-nav-link">⚡ Services</a>
-            <a href="#skills" class="mobile-nav-link">📊 Skills</a>
-            <a href="#testimonials" class="mobile-nav-link">💬 Reviews</a>
-            <a href="#contact" class="mobile-nav-link">📧 Contact</a>
+            <a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="#about" class="mobile-nav-link"><i class="fas fa-user-tie"></i> About</a>
+            <a href="#recent-projects" class="mobile-nav-link"><i class="fas fa-clock"></i> Recent</a>
+            <a href="#portfolio" class="mobile-nav-link"><i class="fas fa-briefcase"></i> Portfolio</a>
+            <a href="#services" class="mobile-nav-link"><i class="fas fa-cogs"></i> Services</a>
+            <a href="#skills" class="mobile-nav-link"><i class="fas fa-chart-bar"></i> Skills</a>
+            <a href="#testimonials" class="mobile-nav-link"><i class="fas fa-comments"></i> Reviews</a>
+            <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a>
         </div>
     </div>
 
@@ -1821,28 +1875,27 @@
         <div class="container">
             <nav class="nav">
                 <a href="#home" class="logo">
-                    <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
-                         alt="AURIX Logo" 
-                         class="logo-img"
-                         crossorigin="anonymous">
-                    <span class="logo-text">AURIX</span>
+                    <img src="IMG-20260403-WA0021(1).jpg" 
+                         alt="AUREX Logo" 
+                         class="logo-img">
+                    <span class="logo-text">AUREX</span>
                 </a>
                 
                 <div class="nav-links">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#recent-projects" class="nav-link">Recent</a>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#home" class="nav-link"><i class="fas fa-home" style="font-size: 0.8rem;"></i> Home</a>
+                    <a href="#about" class="nav-link"><i class="fas fa-user" style="font-size: 0.8rem;"></i> About</a>
+                    <a href="#recent-projects" class="nav-link"><i class="fas fa-clock" style="font-size: 0.8rem;"></i> Recent</a>
+                    <a href="#portfolio" class="nav-link"><i class="fas fa-briefcase" style="font-size: 0.8rem;"></i> Portfolio</a>
+                    <a href="#services" class="nav-link"><i class="fas fa-cogs" style="font-size: 0.8rem;"></i> Services</a>
+                    <a href="#contact" class="nav-link"><i class="fas fa-envelope" style="font-size: 0.8rem;"></i> Contact</a>
                 </div>
                 
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                        <span id="themeIcon">☀️</span>
+                        <i class="fas fa-sun" id="themeIcon"></i>
                     </button>
                     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                        <span>☰</span>
+                        <i class="fas fa-bars" id="menuIcon"></i>
                     </button>
                 </div>
             </nav>
@@ -1855,7 +1908,7 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Available for freelance work
+                    <i class="fas fa-circle" style="font-size: 0.5rem; color: var(--success);"></i> Available for freelance work
                 </div>
                 
                 <h1 class="hero-title">
@@ -1870,11 +1923,11 @@
                 
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn-primary">
-                        <span>👁️</span>
+                        <i class="fas fa-eye"></i>
                         View Portfolio
                     </a>
                     <a href="#contact" class="btn-secondary">
-                        <span>📩</span>
+                        <i class="fas fa-paper-plane"></i>
                         Get in Touch
                     </a>
                 </div>
@@ -1882,15 +1935,15 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number" data-count="150">0</span>
-                        <span class="stat-label">Projects Done</span>
+                        <span class="stat-label"><i class="fas fa-project-diagram" style="margin-right: 4px;"></i>Projects Done</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-count="50">0</span>
-                        <span class="stat-label">Happy Clients</span>
+                        <span class="stat-label"><i class="fas fa-smile" style="margin-right: 4px;"></i>Happy Clients</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-count="5">0</span>
-                        <span class="stat-label">Years Exp.</span>
+                        <span class="stat-label"><i class="fas fa-calendar-alt" style="margin-right: 4px;"></i>Years Exp.</span>
                     </div>
                 </div>
             </div>
@@ -1900,31 +1953,32 @@
         <section class="section-padding about-section" id="about">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">About Us</span>
+                    <span class="section-label"><i class="fas fa-user-tie"></i> About Us</span>
                     <h2 class="section-title">Meet the <span class="text-gradient">CEO</span></h2>
-                    <p class="section-subtitle">The creative mind behind AURIX Design Studio</p>
+                    <p class="section-subtitle">The creative mind behind AUREX Design Studio</p>
                 </div>
                 
                 <div class="ceo-card">
                     <div class="ceo-image-wrapper">
-                        <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
-                             alt="Mustapha Oniyangi - CEO of AURIX" 
-                             class="ceo-image"
-                             crossorigin="anonymous">
-                        <div class="ceo-image-badge">Founder & CEO</div>
+                        <img src="IMG-20260403-WA0021(1).jpg" 
+                             alt="Mustapha Oniyangi - CEO of AUREX" 
+                             class="ceo-image">
+                        <div class="ceo-image-badge">
+                            <i class="fas fa-crown"></i> Founder & CEO
+                        </div>
                     </div>
                     
                     <div class="ceo-content">
                         <div>
                             <h3 class="ceo-name">Mustapha Oniyangi</h3>
                             <div class="ceo-role">
-                                <span>🎨</span>
+                                <i class="fas fa-palette"></i>
                                 Creative Director & Lead Designer
                             </div>
                         </div>
                         
                         <p class="ceo-bio">
-                            With over 5 years of experience in the creative industry, I founded AURIX with a vision 
+                            With over 5 years of experience in the creative industry, I founded AUREX with a vision 
                             to transform how brands communicate visually. Based in Ilorin, Nigeria, I've had the 
                             privilege of working with clients across Africa and beyond, helping them build 
                             memorable brand identities that resonate with their audiences.
@@ -1939,15 +1993,15 @@
                         <div class="ceo-stats">
                             <div class="ceo-stat">
                                 <span class="ceo-stat-number">150+</span>
-                                <span class="ceo-stat-label">Projects</span>
+                                <span class="ceo-stat-label"><i class="fas fa-project-diagram"></i> Projects</span>
                             </div>
                             <div class="ceo-stat">
                                 <span class="ceo-stat-number">50+</span>
-                                <span class="ceo-stat-label">Clients</span>
+                                <span class="ceo-stat-label"><i class="fas fa-users"></i> Clients</span>
                             </div>
                             <div class="ceo-stat">
                                 <span class="ceo-stat-number">5+</span>
-                                <span class="ceo-stat-label">Years</span>
+                                <span class="ceo-stat-label"><i class="fas fa-award"></i> Years</span>
                             </div>
                         </div>
                         
@@ -1977,7 +2031,7 @@
         <section class="section-padding recent-projects" id="recent-projects">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Latest Work</span>
+                    <span class="section-label"><i class="fas fa-clock"></i> Latest Work</span>
                     <h2 class="section-title">Recent <span class="text-gradient">Projects</span></h2>
                     <p class="section-subtitle">Explore my latest creative endeavors and ongoing collaborations</p>
                 </div>
@@ -1989,7 +2043,7 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <span>📅</span>
+                                <i class="fas fa-calendar-alt"></i>
                                 January 2026
                             </div>
                             <h3 class="project-title">Nexus Brand Identity</h3>
@@ -1998,12 +2052,12 @@
                                 color system, typography guidelines, and comprehensive brand book.
                             </p>
                             <div class="project-tags">
-                                <span class="project-tag">Branding</span>
-                                <span class="project-tag">Logo Design</span>
-                                <span class="project-tag">Identity</span>
+                                <span class="project-tag"><i class="fas fa-paint-brush" style="margin-right: 4px;"></i>Branding</span>
+                                <span class="project-tag"><i class="fas fa-vector-square" style="margin-right: 4px;"></i>Logo Design</span>
+                                <span class="project-tag"><i class="fas fa-fingerprint" style="margin-right: 4px;"></i>Identity</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <span>→</span>
+                                View Project <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
@@ -2011,9 +2065,6 @@
                                  alt="Nexus Brand Identity" 
                                  class="project-image"
                                  loading="lazy">
-                            <div class="project-image-overlay">
-                                <span class="project-tag">Featured Project</span>
-                            </div>
                         </div>
                     </div>
                     
@@ -2021,7 +2072,7 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <span>📅</span>
+                                <i class="fas fa-calendar-alt"></i>
                                 December 2025
                             </div>
                             <h3 class="project-title">EcoPack Sustainable</h3>
@@ -2030,12 +2081,12 @@
                                 featuring biodegradable materials and minimalist aesthetics.
                             </p>
                             <div class="project-tags">
-                                <span class="project-tag">Packaging</span>
-                                <span class="project-tag">Sustainable</span>
-                                <span class="project-tag">Print</span>
+                                <span class="project-tag"><i class="fas fa-box" style="margin-right: 4px;"></i>Packaging</span>
+                                <span class="project-tag"><i class="fas fa-leaf" style="margin-right: 4px;"></i>Sustainable</span>
+                                <span class="project-tag"><i class="fas fa-print" style="margin-right: 4px;"></i>Print</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <span>→</span>
+                                View Project <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
@@ -2043,9 +2094,6 @@
                                  alt="EcoPack Design" 
                                  class="project-image"
                                  loading="lazy">
-                            <div class="project-image-overlay">
-                                <span class="project-tag">Award Winning</span>
-                            </div>
                         </div>
                     </div>
                     
@@ -2053,7 +2101,7 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <span>📅</span>
+                                <i class="fas fa-calendar-alt"></i>
                                 November 2025
                             </div>
                             <h3 class="project-title">Motion Flow App</h3>
@@ -2062,12 +2110,12 @@
                                 with real-time data visualization and engaging micro-interactions.
                             </p>
                             <div class="project-tags">
-                                <span class="project-tag">UI/UX</span>
-                                <span class="project-tag">Motion</span>
-                                <span class="project-tag">App Design</span>
+                                <span class="project-tag"><i class="fas fa-mobile-alt" style="margin-right: 4px;"></i>UI/UX</span>
+                                <span class="project-tag"><i class="fas fa-film" style="margin-right: 4px;"></i>Motion</span>
+                                <span class="project-tag"><i class="fas fa-rocket" style="margin-right: 4px;"></i>App Design</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <span>→</span>
+                                View Project <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
@@ -2075,9 +2123,6 @@
                                  alt="Motion Flow App" 
                                  class="project-image"
                                  loading="lazy">
-                            <div class="project-image-overlay">
-                                <span class="project-tag">Mobile App</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2088,7 +2133,7 @@
         <section class="section-padding" id="portfolio">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Portfolio</span>
+                    <span class="section-label"><i class="fas fa-briefcase"></i> Portfolio</span>
                     <h2 class="section-title">Featured <span class="text-gradient">Work</span></h2>
                     <p class="section-subtitle">A curated selection of my best design projects</p>
                 </div>
@@ -2100,7 +2145,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Branding</span>
+                            <span class="portfolio-category"><i class="fas fa-paint-brush"></i> Branding</span>
                             <h3 class="portfolio-title">Luxe Cosmetics</h3>
                             <p class="portfolio-desc">Premium brand identity and packaging design</p>
                         </div>
@@ -2112,7 +2157,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">UI/UX</span>
+                            <span class="portfolio-category"><i class="fas fa-desktop"></i> UI/UX</span>
                             <h3 class="portfolio-title">Fintech Dashboard</h3>
                             <p class="portfolio-desc">Modern banking interface design</p>
                         </div>
@@ -2124,7 +2169,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Illustration</span>
+                            <span class="portfolio-category"><i class="fas fa-pencil-alt"></i> Illustration</span>
                             <h3 class="portfolio-title">Abstract Series</h3>
                             <p class="portfolio-desc">Digital art and creative illustrations</p>
                         </div>
@@ -2136,7 +2181,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Print</span>
+                            <span class="portfolio-category"><i class="fas fa-print"></i> Print</span>
                             <h3 class="portfolio-title">Editorial Layout</h3>
                             <p class="portfolio-desc">Magazine and editorial design</p>
                         </div>
@@ -2148,7 +2193,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Motion</span>
+                            <span class="portfolio-category"><i class="fas fa-film"></i> Motion</span>
                             <h3 class="portfolio-title">Product Animation</h3>
                             <p class="portfolio-desc">3D motion graphics and animation</p>
                         </div>
@@ -2160,7 +2205,7 @@
                              class="portfolio-img"
                              loading="lazy">
                         <div class="portfolio-overlay">
-                            <span class="portfolio-category">Packaging</span>
+                            <span class="portfolio-category"><i class="fas fa-box-open"></i> Packaging</span>
                             <h3 class="portfolio-title">Artisan Coffee</h3>
                             <p class="portfolio-desc">Specialty coffee packaging series</p>
                         </div>
@@ -2173,44 +2218,44 @@
         <section class="section-padding services-section" id="services">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Services</span>
+                    <span class="section-label"><i class="fas fa-cogs"></i> Services</span>
                     <h2 class="section-title">What I <span class="text-gradient">Offer</span></h2>
                     <p class="section-subtitle">Comprehensive design solutions tailored to your needs</p>
                 </div>
                 
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon">🎨</div>
+                        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
                         <h3 class="service-title">Brand Identity</h3>
                         <p class="service-desc">Complete brand systems including logos, color palettes, typography, and brand guidelines that establish memorable market presence.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">💻</div>
+                        <div class="service-icon"><i class="fas fa-desktop"></i></div>
                         <h3 class="service-title">UI/UX Design</h3>
                         <p class="service-desc">User-centered interface design for web and mobile applications, focusing on usability, accessibility, and delightful interactions.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">📦</div>
+                        <div class="service-icon"><i class="fas fa-box-open"></i></div>
                         <h3 class="service-title">Packaging Design</h3>
                         <p class="service-desc">Eye-catching product packaging that stands out on shelves and communicates brand values through thoughtful design.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">🎬</div>
+                        <div class="service-icon"><i class="fas fa-video"></i></div>
                         <h3 class="service-title">Motion Graphics</h3>
                         <p class="service-desc">Animated content for social media, advertisements, and presentations that capture attention and convey messages dynamically.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">✏️</div>
+                        <div class="service-icon"><i class="fas fa-pencil-alt"></i></div>
                         <h3 class="service-title">Illustration</h3>
                         <p class="service-desc">Custom digital illustrations and vector art for editorial, advertising, and decorative purposes with unique artistic style.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">🌐</div>
+                        <div class="service-icon"><i class="fas fa-globe"></i></div>
                         <h3 class="service-title">Web Design</h3>
                         <p class="service-desc">Responsive website design with modern aesthetics, optimized performance, and seamless user experiences across all devices.</p>
                     </div>
@@ -2222,7 +2267,7 @@
         <section class="section-padding" id="skills">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Expertise</span>
+                    <span class="section-label"><i class="fas fa-chart-bar"></i> Expertise</span>
                     <h2 class="section-title">Skills & <span class="text-gradient">Tools</span></h2>
                     <p class="section-subtitle">Technologies and skills I bring to every project</p>
                 </div>
@@ -2343,7 +2388,7 @@
         <section class="section-padding testimonials-section" id="testimonials">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Testimonials</span>
+                    <span class="section-label"><i class="fas fa-comments"></i> Testimonials</span>
                     <h2 class="section-title">Client <span class="text-gradient">Reviews</span></h2>
                     <p class="section-subtitle">What people say about working with me</p>
                 </div>
@@ -2356,7 +2401,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"AURIX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
+                        <p class="testimonial-text">"AUREX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah Johnson" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2370,7 +2415,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Working with AURIX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
+                        <p class="testimonial-text">"Working with AUREX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Michael Chen" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2384,7 +2429,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
-                        <p class="testimonial-text">"The packaging design AURIX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
+                        <p class="testimonial-text">"The packaging design AUREX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Emma Williams" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2398,7 +2443,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Incredible motion graphics work! AURIX brought our brand story to life with stunning animations that captivated our audience."</p>
+                        <p class="testimonial-text">"Incredible motion graphics work! AUREX brought our brand story to life with stunning animations that captivated our audience."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="David Park" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2413,7 +2458,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"AURIX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
+                        <p class="testimonial-text">"AUREX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah Johnson" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2427,7 +2472,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Working with AURIX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
+                        <p class="testimonial-text">"Working with AUREX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Michael Chen" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2441,7 +2486,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
-                        <p class="testimonial-text">"The packaging design AURIX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
+                        <p class="testimonial-text">"The packaging design AUREX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Emma Williams" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2455,7 +2500,7 @@
                         <div class="testimonial-stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Incredible motion graphics work! AURIX brought our brand story to life with stunning animations that captivated our audience."</p>
+                        <p class="testimonial-text">"Incredible motion graphics work! AUREX brought our brand story to life with stunning animations that captivated our audience."</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="David Park" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -2472,7 +2517,7 @@
         <section class="section-padding" id="contact">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">Contact</span>
+                    <span class="section-label"><i class="fas fa-envelope"></i> Contact</span>
                     <h2 class="section-title">Let's Work <span class="text-gradient">Together</span></h2>
                     <p class="section-subtitle">Have a project in mind? Let's create something amazing</p>
                 </div>
@@ -2480,7 +2525,7 @@
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="contact-details">
                                 <h4>Location</h4>
                                 <p>No.57 Aderemi Adeleye street, GRA<br>Ilorin, Kwara State, Nigeria</p>
@@ -2488,7 +2533,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-details">
                                 <h4>Email</h4>
                                 <a href="mailto:imanoniyangi5@gmail.com">imanoniyangi5@gmail.com</a>
@@ -2496,7 +2541,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📞</div>
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
                                 <a href="tel:+2349127161200">+234 912 716 1200</a>
@@ -2504,7 +2549,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">💬</div>
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
                             <div class="contact-details">
                                 <h4>WhatsApp</h4>
                                 <a href="https://wa.me/2349127161200" target="_blank">Chat on WhatsApp</a>
@@ -2514,15 +2559,15 @@
                     
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label class="form-label">Your Name</label>
+                            <label class="form-label"><i class="fas fa-user" style="margin-right: 6px;"></i>Your Name</label>
                             <input type="text" class="form-control" id="contactName" placeholder="John Doe" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Email Address</label>
+                            <label class="form-label"><i class="fas fa-envelope" style="margin-right: 6px;"></i>Email Address</label>
                             <input type="email" class="form-control" id="contactEmail" placeholder="john@example.com" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Project Type</label>
+                            <label class="form-label"><i class="fas fa-list" style="margin-right: 6px;"></i>Project Type</label>
                             <select class="form-control" id="contactType">
                                 <option value="">Select a service</option>
                                 <option value="branding">Brand Identity</option>
@@ -2535,11 +2580,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Your Message</label>
+                            <label class="form-label"><i class="fas fa-comment" style="margin-right: 6px;"></i>Your Message</label>
                             <textarea class="form-control" id="contactMessage" placeholder="Tell me about your project..." required></textarea>
                         </div>
                         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                            <span>📤</span>
+                            <i class="fas fa-paper-plane"></i>
                             Send Message
                         </button>
                     </form>
@@ -2553,11 +2598,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
-                         alt="AURIX" 
-                         class="footer-logo-img"
-                         crossorigin="anonymous">
-                    <span class="footer-logo-text">AURIX</span>
+                    <img src="IMG-20260403-WA0021(1).jpg" 
+                         alt="AUREX" 
+                         class="footer-logo-img">
+                    <span class="footer-logo-text">AUREX</span>
                 </div>
                 
                 <p class="footer-desc">
@@ -2565,18 +2609,18 @@
                     that elevate brands and create lasting impressions.
                 </p>
                 
-                <!-- Footer Navigation Buttons -->
+                <!-- Footer Navigation Buttons - HOME, PORTFOLIO, CONTACT -->
                 <nav class="footer-nav">
                     <a href="#home" class="footer-nav-btn">
-                        <span>🏠</span>
+                        <i class="fas fa-home"></i>
                         HOME
                     </a>
                     <a href="#portfolio" class="footer-nav-btn">
-                        <span>💼</span>
+                        <i class="fas fa-briefcase"></i>
                         PORTFOLIO
                     </a>
                     <a href="#contact" class="footer-nav-btn">
-                        <span>📧</span>
+                        <i class="fas fa-envelope"></i>
                         CONTACT
                     </a>
                 </nav>
@@ -2597,8 +2641,8 @@
                 </div>
                 
                 <p class="footer-copyright">
-                    © <span id="currentYear">2026</span> AURIX Design Studio. All rights reserved.<br>
-                    Crafted by <a href="https://supreme-amerweb.vercel.app" target="_blank" rel="noopener">SupremeAmer</a>
+                    <i class="fas fa-copyright" style="margin-right: 4px;"></i> <span id="currentYear">2026</span> AUREX Design Studio. All rights reserved.<br>
+                    Crafted with <i class="fas fa-heart" style="color: var(--error);"></i> by <a href="https://supreme-amerweb.vercel.app" target="_blank" rel="noopener">SupremeAmer</a>
                 </p>
             </div>
         </div>
@@ -2606,12 +2650,12 @@
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <span>⬆️</span>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // AURIX Application
-        class AurixApp {
+        // AUREX Application
+        class AurexApp {
             constructor() {
                 this.termsAccepted = false;
                 this.init();
@@ -2631,9 +2675,8 @@
                 this.setupServiceWorker();
             }
 
-            // Check if terms already accepted
             checkTerms() {
-                const accepted = localStorage.getItem('aurix_terms_accepted');
+                const accepted = localStorage.getItem('aurex_terms_accepted');
                 if (accepted === 'true') {
                     this.termsAccepted = true;
                     document.getElementById('termsModal').classList.remove('active');
@@ -2652,7 +2695,6 @@
                     acceptBtn.disabled = !checkbox.checked;
                 });
 
-                // Prevent closing modal by clicking outside
                 document.getElementById('termsModal').addEventListener('click', (e) => {
                     if (e.target === document.getElementById('termsModal')) {
                         this.showToast('Please accept the terms to continue', 'warning');
@@ -2662,16 +2704,15 @@
 
             acceptTerms() {
                 this.termsAccepted = true;
-                localStorage.setItem('aurix_terms_accepted', 'true');
-                localStorage.setItem('aurix_terms_date', new Date().toISOString());
+                localStorage.setItem('aurex_terms_accepted', 'true');
+                localStorage.setItem('aurex_terms_date', new Date().toISOString());
                 
                 const modal = document.getElementById('termsModal');
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
                 
-                this.showToast('Welcome to AURIX! 🎉', 'success');
+                this.showToast('Welcome to AUREX!', 'success');
                 
-                // Trigger install prompt if available
                 if (this.deferredPrompt) {
                     setTimeout(() => {
                         document.getElementById('installBtn').classList.add('visible');
@@ -2681,7 +2722,6 @@
 
             declineTerms() {
                 this.showToast('You must accept the terms to use this application', 'error');
-                // Shake animation on modal
                 const content = document.querySelector('.terms-content');
                 content.style.animation = 'shake 0.5s ease';
                 setTimeout(() => {
@@ -2694,7 +2734,7 @@
                     setTimeout(() => {
                         document.getElementById('loadingScreen').classList.add('hidden');
                         this.animateHero();
-                    }, 2000);
+                    }, 2500);
                 });
             }
 
@@ -2702,17 +2742,17 @@
                 const themeToggle = document.getElementById('themeToggle');
                 const themeIcon = document.getElementById('themeIcon');
                 
-                const savedTheme = localStorage.getItem('aurix_theme');
+                const savedTheme = localStorage.getItem('aurex_theme');
                 if (savedTheme === 'light') {
                     document.body.classList.add('light-mode');
-                    themeIcon.textContent = '🌙';
+                    themeIcon.className = 'fas fa-moon';
                 }
 
                 themeToggle.addEventListener('click', () => {
                     document.body.classList.toggle('light-mode');
                     const isLight = document.body.classList.contains('light-mode');
-                    localStorage.setItem('aurix_theme', isLight ? 'light' : 'dark');
-                    themeIcon.textContent = isLight ? '🌙' : '☀️';
+                    localStorage.setItem('aurex_theme', isLight ? 'light' : 'dark');
+                    themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
                     this.showToast(`${isLight ? 'Light' : 'Dark'} mode activated`, 'info');
                 });
             }
@@ -2720,10 +2760,10 @@
             setupNavigation() {
                 const header = document.getElementById('header');
                 const menuToggle = document.getElementById('menuToggle');
+                const menuIcon = document.getElementById('menuIcon');
                 const mobileMenu = document.getElementById('mobileMenu');
                 const mobileOverlay = document.getElementById('mobileOverlay');
                 
-                // Scroll effect
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
                         header.classList.add('scrolled');
@@ -2739,22 +2779,20 @@
                     }
                 });
 
-                // Mobile menu toggle with emoji
                 menuToggle.addEventListener('click', () => {
                     const isOpen = mobileMenu.classList.toggle('active');
                     mobileOverlay.classList.toggle('active');
-                    menuToggle.querySelector('span').textContent = isOpen ? '✕' : '☰';
+                    menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
                     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
                 });
 
                 mobileOverlay.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
                     mobileOverlay.classList.remove('active');
-                    menuToggle.querySelector('span').textContent = '☰';
+                    menuIcon.className = 'fas fa-bars';
                     document.body.style.overflow = 'auto';
                 });
 
-                // Smooth scroll
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -2770,13 +2808,12 @@
                             
                             mobileMenu.classList.remove('active');
                             mobileOverlay.classList.remove('active');
-                            menuToggle.querySelector('span').textContent = '☰';
+                            menuIcon.className = 'fas fa-bars';
                             document.body.style.overflow = 'auto';
                         }
                     });
                 });
 
-                // Active nav link on scroll
                 const sections = document.querySelectorAll('section[id]');
                 window.addEventListener('scroll', () => {
                     let current = '';
@@ -2842,16 +2879,11 @@
                         });
                     });
 
-                    // CEO card animation
                     gsap.from('.ceo-card', {
                         scrollTrigger: { trigger: '.ceo-card', start: 'top 80%' },
                         y: 60, opacity: 0, duration: 1, ease: 'power3.out'
                     });
                 }
-            }
-
-            setupCounters() {
-                // Handled in animateHero
             }
 
             setupSkills() {
@@ -2907,7 +2939,6 @@
                     deferredPrompt = e;
                     this.deferredPrompt = e;
                     
-                    // Only show if terms accepted
                     if (this.termsAccepted) {
                         installBtn.classList.add('visible');
                     }
@@ -2918,7 +2949,7 @@
                         deferredPrompt.prompt();
                         const { outcome } = await deferredPrompt.userChoice;
                         if (outcome === 'accepted') {
-                            this.showToast('App installed successfully! 🎉', 'success');
+                            this.showToast('App installed successfully!', 'success');
                         }
                         deferredPrompt = null;
                         installBtn.classList.remove('visible');
@@ -2926,7 +2957,7 @@
                 });
 
                 window.addEventListener('appinstalled', () => {
-                    this.showToast('AURIX installed! Enjoy offline access 📱', 'success');
+                    this.showToast('AUREX installed! Enjoy offline access', 'success');
                     installBtn.classList.remove('visible');
                     deferredPrompt = null;
                 });
@@ -2936,9 +2967,9 @@
                 if ('serviceWorker' in navigator) {
                     try {
                         const swCode = `
-                            const CACHE_NAME = 'aurix-v2';
-                            const STATIC_CACHE = 'aurix-static-v2';
-                            const IMAGE_CACHE = 'aurix-images-v2';
+                            const CACHE_NAME = 'aurex-v1';
+                            const STATIC_CACHE = 'aurex-static-v1';
+                            const IMAGE_CACHE = 'aurex-images-v1';
                             const OFFLINE_PAGE = '/offline.html';
 
                             const STATIC_ASSETS = [
@@ -2961,7 +2992,7 @@
                                     caches.keys().then((cacheNames) => {
                                         return Promise.all(
                                             cacheNames
-                                                .filter((name) => name.startsWith('aurix-') && !name.includes('v2'))
+                                                .filter((name) => name.startsWith('aurex-') && !name.includes('v1'))
                                                 .map((name) => caches.delete(name))
                                         );
                                     }).then(() => self.clients.claim())
@@ -3034,13 +3065,13 @@
                 toast.className = `toast toast-${type}`;
                 
                 const icons = {
-                    success: '✅',
-                    error: '❌',
-                    warning: '⚠️',
-                    info: 'ℹ️'
+                    success: '<i class="fas fa-check-circle"></i>',
+                    error: '<i class="fas fa-times-circle"></i>',
+                    warning: '<i class="fas fa-exclamation-triangle"></i>',
+                    info: '<i class="fas fa-info-circle"></i>'
                 };
                 
-                toast.innerHTML = `<span>${icons[type] || '✅'}</span> ${message}`;
+                toast.innerHTML = `${icons[type] || icons.success} ${message}`;
                 container.appendChild(toast);
                 
                 requestAnimationFrame(() => toast.classList.add('show'));
@@ -3054,33 +3085,33 @@
 
         // Global functions for terms modal
         function acceptTerms() {
-            window.aurixApp.acceptTerms();
+            window.aurexApp.acceptTerms();
         }
 
         function declineTerms() {
-            window.aurixApp.declineTerms();
+            window.aurexApp.declineTerms();
         }
 
         function showPrivacyDetail() {
-            window.aurixApp.showToast('Privacy Policy: We only store preferences locally', 'info');
+            window.aurexApp.showToast('Privacy Policy: We only store preferences locally', 'info');
         }
 
         function showTermsDetail() {
-            window.aurixApp.showToast('Terms: All content is copyrighted', 'info');
+            window.aurexApp.showToast('Terms: All content is copyrighted', 'info');
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            window.aurixApp = new AurixApp();
+            window.aurexApp = new AurexApp();
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
 
         // Online/Offline
         window.addEventListener('online', () => {
-            if (window.aurixApp) window.aurixApp.showToast('Back online! 🌐', 'success');
+            if (window.aurexApp) window.aurexApp.showToast('Back online!', 'success');
         });
         window.addEventListener('offline', () => {
-            if (window.aurixApp) window.aurixApp.showToast('You are offline 📵', 'warning');
+            if (window.aurexApp) window.aurexApp.showToast('You are offline', 'warning');
         });
     </script>
 </body>
