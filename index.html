@@ -8,22 +8,22 @@
     <link rel="manifest" href="/manifest.json">
     
     <!-- SEO Meta Tags -->
-    <title>AUREX | Creative Design Studio & Portfolio</title>
-    <meta name="description" content="AUREX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions. Transforming visions into visual reality.">
-    <meta name="keywords" content="AUREX, graphic designer, branding, logo design, UI/UX, packaging design, motion graphics, web design, creative studio">
-    <meta name="author" content="AUREX">
+    <title>AURIX | Creative Design Studio & Portfolio</title>
+    <meta name="description" content="AURIX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions. Transforming visions into visual reality.">
+    <meta name="keywords" content="AURIX, graphic designer, branding, logo design, UI/UX, packaging design, motion graphics, web design, creative studio">
+    <meta name="author" content="AURIX">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="AUREX | Creative Design Studio">
+    <meta property="og:title" content="AURIX | Creative Design Studio">
     <meta property="og:description" content="Transforming visions into visual reality with professional design services.">
-    <meta property="og:image" content="IMG-20260324-WA0010.jpg">
-    <meta property="og:url" content="https://aurex-design.vercel.app">
+    <meta property="og:image" content="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg">
+    <meta property="og:url" content="https://aurix-design.vercel.app">
     <meta property="og:type" content="website">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AUREX Creative Studio">
+    <meta name="twitter:title" content="AURIX Creative Studio">
     <meta name="twitter:description" content="Professional Design Services for Brands and Businesses">
     
     <!-- PWA Meta -->
@@ -32,11 +32,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="AURIX">
     <meta name="msapplication-TileColor" content="#6366f1">
-    <meta name="msapplication-TileImage" content="IMG-20260324-WA0010.jpg">
+    <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
     
     <!-- Favicon -->
-    <link rel="icon" href="IMG-20260324-WA0010.jpg" type="image/jpeg">
-    <link rel="apple-touch-icon" href="IMG-20260324-WA0010.jpg">
+    <link rel="icon" href="icons/icon-72x72.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,9 +49,6 @@
     <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Three.js for Hero Background -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
         /* CSS Variables & Design Tokens */
@@ -68,19 +65,20 @@
             --bg-primary: #0f0f1a;
             --bg-secondary: #1a1a2e;
             --bg-card: #16162a;
-            --bg-glass: rgba(22, 22, 42, 0.8);
+            --bg-glass: rgba(22, 22, 42, 0.85);
             
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
             
-            --border: rgba(255, 255, 255, 0.1);
-            --border-hover: rgba(99, 102, 241, 0.5);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
             
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.3);
+            --shadow-float: 0 10px 40px rgba(99, 102, 241, 0.4);
             
             --radius-sm: 8px;
             --radius-md: 16px;
@@ -93,29 +91,26 @@
             
             --font-heading: 'Space Grotesk', sans-serif;
             --font-body: 'Inter', sans-serif;
-            
-            --cursor-x: 50%;
-            --cursor-y: 50%;
         }
 
-        /* Light Mode Variables */
         body.light-mode {
             --bg-primary: #f8fafc;
             --bg-secondary: #f1f5f9;
             --bg-card: #ffffff;
-            --bg-glass: rgba(255, 255, 255, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.85);
             
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --text-muted: #94a3b8;
             
-            --border: rgba(0, 0, 0, 0.1);
-            --border-hover: rgba(99, 102, 241, 0.5);
+            --border: rgba(0, 0, 0, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
             
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
             --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.2);
+            --shadow-float: 0 10px 40px rgba(99, 102, 241, 0.3);
         }
 
         /* Reset & Base */
@@ -127,7 +122,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 90px;
             font-size: 16px;
         }
 
@@ -142,22 +137,16 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
-
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
+            border-radius: 3px;
         }
 
         /* Typography */
@@ -182,7 +171,6 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* Layout */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -191,26 +179,7 @@
         }
 
         .section-padding {
-            padding: 120px 0;
-        }
-
-        /* Custom Cursor Effect */
-        .cursor-glow {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease;
-            opacity: 0;
-            mix-blend-mode: screen;
-        }
-
-        body:hover .cursor-glow {
-            opacity: 1;
+            padding: 100px 0;
         }
 
         /* Loading Screen */
@@ -225,13 +194,11 @@
             justify-content: center;
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
-
         .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
-
         .loading-logo {
             font-family: var(--font-heading);
             font-size: 3rem;
@@ -242,7 +209,6 @@
             -webkit-text-fill-color: transparent;
             animation: pulse 2s ease-in-out infinite;
         }
-
         .loading-bar-container {
             width: 200px;
             height: 3px;
@@ -251,7 +217,6 @@
             margin-top: 24px;
             overflow: hidden;
         }
-
         .loading-bar-fill {
             height: 100%;
             width: 0%;
@@ -259,19 +224,17 @@
             border-radius: 3px;
             animation: loadingProgress 2s ease-in-out forwards;
         }
-
         @keyframes loadingProgress {
             0% { width: 0%; }
             50% { width: 70%; }
             100% { width: 100%; }
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.7; transform: scale(0.95); }
         }
 
-        /* Header */
+        /* ===== HEADER & NAVIGATION ===== */
         .header {
             position: fixed;
             top: 0;
@@ -284,22 +247,16 @@
             border-bottom: 1px solid var(--border);
             transition: var(--transition-base);
         }
-
         .header.scrolled {
-            background: rgba(15, 15, 26, 0.95);
             box-shadow: var(--shadow-md);
-        }
-
-        body.light-mode .header.scrolled {
-            background: rgba(248, 250, 252, 0.95);
         }
 
         .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 0;
-            height: 80px;
+            padding: 16px 0;
+            height: 72px;
         }
 
         .logo {
@@ -307,115 +264,106 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
         }
-
         .logo-img {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             object-fit: cover;
             border: 2px solid var(--primary);
             transition: var(--transition-base);
             animation: float 6s ease-in-out infinite;
         }
-
         .logo:hover .logo-img {
             transform: rotate(15deg) scale(1.1);
             border-color: var(--secondary);
             box-shadow: var(--shadow-glow);
         }
-
         .logo-text {
             font-family: var(--font-heading);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.02em;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
+        /* Nav Links - Desktop */
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
-
         .nav-link {
             padding: 8px 16px;
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border-radius: var(--radius-sm);
             transition: var(--transition-fast);
             position: relative;
         }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: var(--transition-base);
-            transform: translateX(-50%);
-            border-radius: 2px;
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
         }
 
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-link:hover::after {
-            width: 60%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .btn-icon {
-            width: 44px;
-            height: 44px;
+        /* Theme Toggle - Clean Emoji */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-secondary);
+            background: var(--bg-card);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
             transition: var(--transition-fast);
-            font-size: 1.1rem;
+            user-select: none;
         }
-
-        .btn-icon:hover {
-            background: var(--primary);
-            color: white;
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
             border-color: var(--primary);
-            transform: translateY(-2px);
             box-shadow: var(--shadow-glow);
         }
 
-        .btn-primary {
-            display: inline-flex;
+        /* Mobile Menu Toggle - Clean Emoji */
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            cursor: pointer;
             align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition-fast);
+            user-select: none;
+        }
+        .menu-toggle:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Floating Hire Me Button */
+        .hire-me-float {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 998;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             font-family: var(--font-heading);
             font-weight: 600;
@@ -424,120 +372,64 @@
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
-            transition: var(--transition-base);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: var(--transition-slow);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 28px;
-            background: transparent;
-            color: var(--text-primary);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: 2px solid var(--border);
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
+            box-shadow: var(--shadow-float);
             transition: var(--transition-base);
+            animation: floatHire 3s ease-in-out infinite;
         }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
+        .hire-me-float:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.5);
         }
-
-        .menu-toggle {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition-fast);
-        }
-
-        .menu-toggle:hover {
-            background: var(--primary);
-            color: white;
+        @keyframes floatHire {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100vh;
-            background: var(--bg-secondary);
-            z-index: 1001;
-            padding: 100px 40px 40px;
-            transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
         .mobile-menu-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
             transition: var(--transition-base);
         }
-
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
 
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--bg-secondary);
+            z-index: 1001;
+            padding: 100px 32px 40px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
         .mobile-nav-links {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
-
         .mobile-nav-link {
-            padding: 16px;
+            padding: 14px 16px;
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
@@ -545,19 +437,13 @@
             align-items: center;
             gap: 12px;
         }
-
         .mobile-nav-link:hover {
             background: var(--bg-card);
             color: var(--primary);
             transform: translateX(8px);
         }
 
-        .mobile-nav-link i {
-            width: 24px;
-            text-align: center;
-        }
-
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -565,23 +451,16 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            padding: 120px 0 80px;
-        }
-
-        #hero-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            padding: 140px 0 80px;
+            background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15), transparent 60%),
+                        radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.1), transparent 50%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            max-width: 900px;
+            max-width: 850px;
             padding: 0 24px;
         }
 
@@ -599,7 +478,6 @@
             backdrop-filter: blur(10px);
             animation: fadeInDown 0.8s ease;
         }
-
         .hero-badge .dot {
             width: 8px;
             height: 8px;
@@ -607,41 +485,36 @@
             border-radius: 50%;
             animation: blink 2s ease-in-out infinite;
         }
-
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.3; }
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
-
         .hero-title .line {
             display: block;
             overflow: hidden;
         }
-
         .hero-title .line span {
             display: block;
             transform: translateY(100%);
             animation: revealText 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
-
         .hero-title .line:nth-child(2) span {
             animation-delay: 0.2s;
         }
-
         @keyframes revealText {
             to { transform: translateY(0); }
         }
 
         .hero-description {
-            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto 40px;
@@ -659,6 +532,65 @@
             animation: fadeInUp 1s ease 0.8s forwards;
         }
 
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition-slow);
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
         .hero-stats {
             display: flex;
             justify-content: center;
@@ -667,11 +599,9 @@
             opacity: 0;
             animation: fadeInUp 1s ease 1s forwards;
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-number {
             font-family: var(--font-heading);
             font-size: 2.5rem;
@@ -679,7 +609,6 @@
             color: var(--text-primary);
             display: block;
         }
-
         .stat-label {
             font-size: 0.875rem;
             color: var(--text-muted);
@@ -690,18 +619,16 @@
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section Headers */
+        /* ===== SECTION HEADERS ===== */
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 64px;
         }
-
         .section-label {
             display: inline-block;
             padding: 6px 16px;
@@ -715,59 +642,180 @@
             letter-spacing: 0.05em;
             margin-bottom: 16px;
         }
-
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
             margin-bottom: 16px;
         }
-
         .section-subtitle {
-            font-size: 1.125rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
         }
 
-        /* Recent Projects Section */
-        .recent-projects {
+        /* ===== ABOUT / CEO SECTION ===== */
+        .about-section {
             background: var(--bg-secondary);
             position: relative;
             overflow: hidden;
         }
-
-        .recent-projects::before {
+        .about-section::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
+            border-radius: 50%;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .ceo-card {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 60px;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ceo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
         }
 
+        .ceo-image-wrapper {
+            position: relative;
+        }
+        .ceo-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            border: 3px solid var(--border);
+            transition: var(--transition-base);
+        }
+        .ceo-image-wrapper:hover .ceo-image {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-glow);
+        }
+        .ceo-image-badge {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: var(--shadow-md);
+        }
+
+        .ceo-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .ceo-name {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+        .ceo-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-light);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .ceo-bio {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .ceo-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .ceo-social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+        }
+        .ceo-social-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .ceo-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 16px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+        .ceo-stat {
+            text-align: center;
+        }
+        .ceo-stat-number {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        .ceo-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ===== RECENT PROJECTS ===== */
+        .recent-projects {
+            background: var(--bg-primary);
+        }
         .projects-timeline {
             position: relative;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
-
         .timeline-line {
             position: absolute;
             left: 50%;
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
             transform: translateX(-50%);
             opacity: 0.3;
         }
-
         .project-card {
             position: relative;
             display: grid;
@@ -776,29 +824,24 @@
             margin-bottom: 60px;
             opacity: 0;
             transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .project-card.visible {
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .project-card:nth-child(even) {
             direction: rtl;
         }
-
         .project-card:nth-child(even) > * {
             direction: ltr;
         }
-
         .project-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 20px;
         }
-
         .project-date {
             display: inline-flex;
             align-items: center;
@@ -808,26 +851,21 @@
             font-weight: 600;
             margin-bottom: 12px;
         }
-
         .project-title {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             margin-bottom: 12px;
-            color: var(--text-primary);
         }
-
         .project-description {
             color: var(--text-secondary);
             margin-bottom: 20px;
             line-height: 1.7;
         }
-
         .project-tags {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 24px;
         }
-
         .project-tag {
             padding: 6px 14px;
             background: rgba(99, 102, 241, 0.1);
@@ -837,7 +875,6 @@
             color: var(--primary-light);
             font-weight: 500;
         }
-
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -847,12 +884,10 @@
             font-weight: 600;
             transition: var(--transition-fast);
         }
-
         .project-link:hover {
             gap: 12px;
             color: var(--secondary);
         }
-
         .project-image-wrapper {
             position: relative;
             border-radius: var(--radius-lg);
@@ -860,33 +895,15 @@
             aspect-ratio: 16/10;
             box-shadow: var(--shadow-lg);
         }
-
         .project-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .project-image-wrapper:hover .project-image {
             transform: scale(1.05);
         }
-
-        .project-image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(15, 15, 26, 0.8), transparent);
-            opacity: 0;
-            transition: var(--transition-base);
-            display: flex;
-            align-items: flex-end;
-            padding: 24px;
-        }
-
-        .project-image-wrapper:hover .project-image-overlay {
-            opacity: 1;
-        }
-
         .timeline-dot {
             position: absolute;
             left: 50%;
@@ -894,67 +911,59 @@
             width: 16px;
             height: 16px;
             background: var(--primary);
-            border: 4px solid var(--bg-secondary);
+            border: 4px solid var(--bg-primary);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
             box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
         }
-
         .project-card.visible .timeline-dot {
             animation: pulseDot 2s ease-in-out infinite;
         }
-
         @keyframes pulseDot {
             0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
             50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
         }
 
-        /* Portfolio Grid */
+        /* ===== PORTFOLIO ===== */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
         }
-
         .portfolio-item {
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
             aspect-ratio: 4/3;
             cursor: pointer;
-            group: portfolio;
+            background: var(--bg-card);
         }
-
         .portfolio-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .portfolio-item:hover .portfolio-img {
             transform: scale(1.1);
         }
-
         .portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(15, 15, 26, 0.9) 0%, rgba(15, 15, 26, 0.4) 50%, transparent 100%);
+            background: linear-gradient(to top, rgba(15, 15, 26, 0.95) 0%, rgba(15, 15, 26, 0.5) 50%, transparent 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 30px;
+            padding: 24px;
             opacity: 0;
             transition: var(--transition-base);
         }
-
         .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
-
         .portfolio-category {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: var(--primary-light);
             font-weight: 600;
             text-transform: uppercase;
@@ -963,51 +972,47 @@
             transform: translateY(20px);
             transition: transform 0.4s ease 0.1s;
         }
-
         .portfolio-item:hover .portfolio-category {
             transform: translateY(0);
         }
-
         .portfolio-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: white;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             transform: translateY(20px);
             transition: transform 0.4s ease 0.15s;
         }
-
         .portfolio-item:hover .portfolio-title {
             transform: translateY(0);
         }
-
         .portfolio-desc {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transform: translateY(20px);
             transition: transform 0.4s ease 0.2s;
         }
-
         .portfolio-item:hover .portfolio-desc {
             transform: translateY(0);
         }
 
-        /* Services */
+        /* ===== SERVICES ===== */
+        .services-section {
+            background: var(--bg-secondary);
+        }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
-
         .service-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 36px;
             transition: var(--transition-base);
             position: relative;
             overflow: hidden;
         }
-
         .service-card::before {
             content: '';
             position: absolute;
@@ -1020,74 +1025,65 @@
             transform-origin: left;
             transition: transform 0.6s ease;
         }
-
         .service-card:hover::before {
             transform: scaleX(1);
         }
-
         .service-card:hover {
             transform: translateY(-8px);
             border-color: var(--border-hover);
             box-shadow: var(--shadow-lg);
         }
-
         .service-icon {
-            width: 60px;
-            height: 60px;
+            width: 56px;
+            height: 56px;
             border-radius: var(--radius-md);
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             transition: var(--transition-base);
         }
-
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(5deg);
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
         }
-
         .service-title {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
         }
-
         .service-desc {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
         }
 
-        /* Skills */
+        /* ===== SKILLS ===== */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
         }
-
         .skill-item {
             margin-bottom: 24px;
         }
-
         .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
-
         .skill-name {
             font-weight: 600;
             color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 0.95rem;
         }
-
         .skill-icon {
             width: 32px;
             height: 32px;
@@ -1096,16 +1092,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--primary);
         }
-
         .skill-percentage {
             font-family: var(--font-heading);
             font-weight: 700;
             color: var(--primary-light);
+            font-size: 0.9rem;
         }
-
         .skill-bar {
             height: 8px;
             background: var(--bg-secondary);
@@ -1113,7 +1108,6 @@
             overflow: hidden;
             position: relative;
         }
-
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -1122,7 +1116,6 @@
             transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
-
         .skill-progress::after {
             content: '';
             position: absolute;
@@ -1133,213 +1126,186 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
             animation: shimmer 2s infinite;
         }
-
         @keyframes shimmer {
             0% { transform: translateX(-20px); }
             100% { transform: translateX(20px); }
         }
 
-        /* Testimonials */
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
         .testimonials-wrapper {
             position: relative;
             overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
-
         .testimonials-track {
             display: flex;
-            gap: 30px;
-            animation: scroll 40s linear infinite;
+            gap: 24px;
+            animation: scroll 35s linear infinite;
             width: max-content;
         }
-
         .testimonials-wrapper:hover .testimonials-track {
             animation-play-state: paused;
         }
-
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
-
         .testimonial-card {
-            flex: 0 0 400px;
+            flex: 0 0 380px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 32px;
             transition: var(--transition-base);
         }
-
         .testimonial-card:hover {
             border-color: var(--border-hover);
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
         }
-
         .testimonial-stars {
             color: var(--warning);
             margin-bottom: 16px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
-
         .testimonial-text {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.7;
             margin-bottom: 24px;
             font-style: italic;
         }
-
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
         }
-
         .testimonial-avatar {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary);
         }
-
         .testimonial-info h4 {
-            font-size: 1rem;
-            margin-bottom: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
         }
-
         .testimonial-info span {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
         }
 
-        /* Contact */
+        /* ===== CONTACT ===== */
         .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: start;
         }
-
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 28px;
         }
-
         .contact-item {
             display: flex;
             align-items: flex-start;
             gap: 16px;
         }
-
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: var(--radius-md);
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--primary);
             flex-shrink: 0;
         }
-
         .contact-details h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 4px;
         }
-
         .contact-details p, .contact-details a {
             color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.9rem;
             transition: var(--transition-fast);
         }
-
         .contact-details a:hover {
             color: var(--primary);
         }
-
         .contact-form {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 40px;
         }
-
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
-
         .form-label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-primary);
         }
-
         .form-control {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 16px;
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: var(--radius-md);
             color: var(--text-primary);
             font-family: var(--font-body);
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: var(--transition-fast);
         }
-
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
         }
-
         .form-control::placeholder {
             color: var(--text-muted);
         }
-
         textarea.form-control {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         .footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
-            padding: 80px 0 40px;
+            padding: 60px 0 100px;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
+        .footer-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        .footer-brand {
-            max-width: 300px;
-        }
-
         .footer-logo {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-
         .footer-logo-img {
             width: 40px;
             height: 40px;
             border-radius: 10px;
             object-fit: cover;
         }
-
         .footer-logo-text {
             font-family: var(--font-heading);
             font-size: 1.5rem;
@@ -1349,22 +1315,57 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .footer-desc {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+        }
+
+        /* Footer Navigation Buttons */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .footer-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+        .footer-nav-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+        .footer-nav-btn i {
+            font-size: 0.9rem;
         }
 
         .footer-social {
             display: flex;
+            justify-content: center;
             gap: 12px;
+            margin-bottom: 32px;
         }
-
         .footer-social-link {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -1376,7 +1377,6 @@
             transition: var(--transition-fast);
             font-size: 1rem;
         }
-
         .footer-social-link:hover {
             background: var(--primary);
             color: white;
@@ -1385,164 +1385,137 @@
             box-shadow: var(--shadow-glow);
         }
 
-        .footer-heading {
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-link:hover {
-            color: var(--primary);
-            transform: translateX(4px);
-        }
-
-        .footer-link i {
-            font-size: 0.75rem;
-            opacity: 0;
-            transition: var(--transition-fast);
-        }
-
-        .footer-link:hover i {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
         .footer-copyright {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
-
         .footer-copyright a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
         }
 
-        .footer-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .footer-btn {
-            padding: 10px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: var(--transition-fast);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .footer-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        /* Back to Top */
-        .back-to-top {
+        /* ===== MANDATORY TERMS MODAL ===== */
+        .terms-modal {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            cursor: pointer;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100000;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            padding: 20px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
             transition: var(--transition-base);
-            z-index: 999;
-            box-shadow: var(--shadow-glow);
         }
-
-        .back-to-top.visible {
+        .terms-modal.active {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
         }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
-        }
-
-        /* Toast Notifications */
-        .toast-container {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 10000;
+        .terms-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .toast {
-            padding: 16px 24px;
-            border-radius: var(--radius-md);
-            color: white;
-            font-weight: 500;
-            transform: translateX(120%);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 350px;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: var(--shadow-lg);
         }
-
-        .toast.show {
-            transform: translateX(0);
-            opacity: 1;
+        .terms-modal.active .terms-content {
+            transform: scale(1) translateY(0);
+        }
+        .terms-header {
+            padding: 32px 32px 0;
+            text-align: center;
+        }
+        .terms-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        .terms-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .terms-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 32px;
+        }
+        .terms-section {
+            margin-bottom: 24px;
+        }
+        .terms-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+        }
+        .terms-section p, .terms-section ul {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .terms-section ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .terms-section li {
+            margin-bottom: 6px;
+        }
+        .terms-footer {
+            padding: 20px 32px 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+        .terms-checkbox input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+        .terms-checkbox span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .terms-checkbox a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+        .terms-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .terms-actions .btn-primary,
+        .terms-actions .btn-secondary {
+            flex: 1;
+            justify-content: center;
+        }
+        .terms-actions .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        .toast-success { background: rgba(16, 185, 129, 0.9); }
-        .toast-error { background: rgba(239, 68, 68, 0.9); }
-        .toast-warning { background: rgba(245, 158, 11, 0.9); }
-        .toast-info { background: rgba(99, 102, 241, 0.9); }
-
-        /* Install PWA Button */
+        /* ===== INSTALL BUTTON ===== */
         .install-btn {
             position: fixed;
             bottom: 30px;
@@ -1559,69 +1532,118 @@
             display: none;
             align-items: center;
             gap: 8px;
-            z-index: 999;
+            z-index: 997;
             box-shadow: var(--shadow-glow);
             transition: var(--transition-base);
             animation: slideInLeft 0.5s ease;
         }
-
         .install-btn.visible {
             display: flex;
         }
-
         .install-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
         }
-
         @keyframes slideInLeft {
             from { transform: translateX(-100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Particle Canvas */
-        .particles-container {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary);
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            opacity: 0.3;
-            animation: particleFloat 20s infinite linear;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition-base);
+            z-index: 996;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
-        @keyframes particleFloat {
-            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+        /* ===== TOAST ===== */
+        .toast-container {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
+        .toast {
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 320px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow-lg);
+        }
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .toast-success { background: rgba(16, 185, 129, 0.95); }
+        .toast-error { background: rgba(239, 68, 68, 0.95); }
+        .toast-warning { background: rgba(245, 158, 11, 0.95); }
+        .toast-info { background: rgba(99, 102, 241, 0.95); }
 
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
+            .ceo-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .ceo-image-wrapper {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .ceo-social {
+                justify-content: center;
+            }
+            .ceo-stats {
+                max-width: 400px;
+                margin: 16px auto 0;
+            }
             .contact-wrapper {
                 grid-template-columns: 1fr;
             }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
             .project-card {
                 grid-template-columns: 1fr;
             }
-            
             .project-card:nth-child(even) {
                 direction: ltr;
             }
-            
             .timeline-line, .timeline-dot {
                 display: none;
             }
@@ -1631,40 +1653,40 @@
             .nav-links {
                 display: none;
             }
-            
             .menu-toggle {
                 display: flex;
-                align-items: center;
-                justify-content: center;
             }
-            
             .hero-stats {
                 flex-direction: column;
                 gap: 24px;
             }
-            
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
-            
             .skills-container {
                 grid-template-columns: 1fr;
             }
-            
             .testimonial-card {
                 flex: 0 0 300px;
             }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .hire-me-float {
+                bottom: 90px;
+                right: 16px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
             }
-            
-            .footer-bottom {
+            .footer-nav {
                 flex-direction: column;
-                text-align: center;
+                align-items: center;
             }
-            
+            .footer-nav-btn {
+                width: 200px;
+                justify-content: center;
+            }
+            .install-btn {
+                bottom: 90px;
+                left: 16px;
+            }
             .section-padding {
                 padding: 80px 0;
             }
@@ -1674,23 +1696,25 @@
             .container {
                 padding: 0 16px;
             }
-            
             .hero-actions {
                 flex-direction: column;
                 width: 100%;
             }
-            
             .btn-primary, .btn-secondary {
                 width: 100%;
                 justify-content: center;
             }
-            
+            .ceo-card {
+                padding: 32px 24px;
+            }
             .contact-form {
                 padding: 24px;
             }
+            .terms-content {
+                max-height: 90vh;
+            }
         }
 
-        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1698,34 +1722,82 @@
                 transition-duration: 0.01ms !important;
             }
         }
-
-        /* Print */
-        @media print {
-            .no-print { display: none !important; }
-            body { background: white; color: black; }
-        }
     </style>
 </head>
 <body>
+
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">AUREX</div>
+        <div class="loading-logo">AURIX</div>
         <div class="loading-bar-container">
             <div class="loading-bar-fill"></div>
         </div>
     </div>
 
-    <!-- Cursor Glow -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Mandatory Terms Modal -->
+    <div class="terms-modal active" id="termsModal">
+        <div class="terms-content">
+            <div class="terms-header">
+                <h2>Welcome to AURIX</h2>
+                <p>Please review and accept our terms to continue</p>
+            </div>
+            
+            <div class="terms-body">
+                <div class="terms-section">
+                    <h3>Privacy Policy</h3>
+                    <p>We value your privacy. This website uses local storage to remember your preferences (theme, accepted terms) and service workers to enable offline functionality. We do not collect personal data without your consent.</p>
+                    <ul>
+                        <li>Local storage is used for app preferences only</li>
+                        <li>No tracking cookies or analytics without consent</li>
+                        <li>Contact form data is sent directly to WhatsApp</li>
+                        <li>You can clear all data by uninstalling the app</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>Terms of Service</h3>
+                    <p>By using AURIX, you agree to the following terms:</p>
+                    <ul>
+                        <li>All portfolio content is copyrighted material</li>
+                        <li>Contact information is for business inquiries only</li>
+                        <li>This app may be installed on your device for offline access</li>
+                        <li>We reserve the right to update these terms at any time</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>PWA Installation</h3>
+                    <p>This is a Progressive Web App. You may be prompted to install it on your device. Installation enables offline access and faster loading times. You can uninstall at any time through your browser settings.</p>
+                </div>
+            </div>
+            
+            <div class="terms-footer">
+                <label class="terms-checkbox">
+                    <input type="checkbox" id="termsCheckbox">
+                    <span>I have read and agree to the <a href="#" onclick="showPrivacyDetail()">Privacy Policy</a> and <a href="#" onclick="showTermsDetail()">Terms of Service</a>. I understand this app may be installed on my device.</span>
+                </label>
+                <div class="terms-actions">
+                    <button class="btn-secondary" onclick="declineTerms()">Decline</button>
+                    <button class="btn-primary" id="acceptTermsBtn" disabled onclick="acceptTerms()">Accept & Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- Install Button -->
     <button class="install-btn" id="installBtn">
-        <i class="fas fa-download"></i>
+        <span>⬇️</span>
         Install App
     </button>
+
+    <!-- Floating Hire Me Button -->
+    <a href="#contact" class="hire-me-float no-print">
+        <span>💼</span>
+        Hire Me
+    </a>
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileOverlay"></div>
@@ -1733,13 +1805,14 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-nav-links">
-            <a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> Home</a>
-            <a href="#recent-projects" class="mobile-nav-link"><i class="fas fa-clock"></i> Recent Projects</a>
-            <a href="#portfolio" class="mobile-nav-link"><i class="fas fa-briefcase"></i> Portfolio</a>
-            <a href="#services" class="mobile-nav-link"><i class="fas fa-cogs"></i> Services</a>
-            <a href="#skills" class="mobile-nav-link"><i class="fas fa-chart-bar"></i> Skills</a>
-            <a href="#testimonials" class="mobile-nav-link"><i class="fas fa-comments"></i> Testimonials</a>
-            <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#home" class="mobile-nav-link">🏠 Home</a>
+            <a href="#about" class="mobile-nav-link">👤 About</a>
+            <a href="#recent-projects" class="mobile-nav-link">🕐 Recent</a>
+            <a href="#portfolio" class="mobile-nav-link">💼 Portfolio</a>
+            <a href="#services" class="mobile-nav-link">⚡ Services</a>
+            <a href="#skills" class="mobile-nav-link">📊 Skills</a>
+            <a href="#testimonials" class="mobile-nav-link">💬 Reviews</a>
+            <a href="#contact" class="mobile-nav-link">📧 Contact</a>
         </div>
     </div>
 
@@ -1748,29 +1821,28 @@
         <div class="container">
             <nav class="nav">
                 <a href="#home" class="logo">
-                    <img src="IMG-20260324-WA0010.jpg" 
-                         alt="AUREX Logo" 
+                    <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
+                         alt="AURIX Logo" 
                          class="logo-img"
                          crossorigin="anonymous">
-                    <span class="logo-text">AUREX</span>
+                    <span class="logo-text">AURIX</span>
                 </a>
                 
                 <div class="nav-links">
                     <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
                     <a href="#recent-projects" class="nav-link">Recent</a>
                     <a href="#portfolio" class="nav-link">Portfolio</a>
                     <a href="#services" class="nav-link">Services</a>
-                    <a href="#skills" class="nav-link">Skills</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 
-                <div class="nav-actions">
-                    <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
-                        <i class="fas fa-sun"></i>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span id="themeIcon">☀️</span>
                     </button>
-                    <a href="#contact" class="btn-primary no-print">Hire Me</a>
                     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                        <i class="fas fa-bars"></i>
+                        <span>☰</span>
                     </button>
                 </div>
             </nav>
@@ -1780,9 +1852,6 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <canvas id="hero-canvas"></canvas>
-            <div class="particles-container" id="particles"></div>
-            
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
@@ -1801,11 +1870,11 @@
                 
                 <div class="hero-actions">
                     <a href="#portfolio" class="btn-primary">
-                        <i class="fas fa-eye"></i>
+                        <span>👁️</span>
                         View Portfolio
                     </a>
                     <a href="#contact" class="btn-secondary">
-                        <i class="fas fa-paper-plane"></i>
+                        <span>📩</span>
                         Get in Touch
                     </a>
                 </div>
@@ -1813,7 +1882,7 @@
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number" data-count="150">0</span>
-                        <span class="stat-label">Projects Completed</span>
+                        <span class="stat-label">Projects Done</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-count="50">0</span>
@@ -1821,7 +1890,84 @@
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-count="5">0</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / CEO Section -->
+        <section class="section-padding about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Meet the <span class="text-gradient">CEO</span></h2>
+                    <p class="section-subtitle">The creative mind behind AURIX Design Studio</p>
+                </div>
+                
+                <div class="ceo-card">
+                    <div class="ceo-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
+                             alt="Mustapha Oniyangi - CEO of AURIX" 
+                             class="ceo-image"
+                             crossorigin="anonymous">
+                        <div class="ceo-image-badge">Founder & CEO</div>
+                    </div>
+                    
+                    <div class="ceo-content">
+                        <div>
+                            <h3 class="ceo-name">Mustapha Oniyangi</h3>
+                            <div class="ceo-role">
+                                <span>🎨</span>
+                                Creative Director & Lead Designer
+                            </div>
+                        </div>
+                        
+                        <p class="ceo-bio">
+                            With over 5 years of experience in the creative industry, I founded AURIX with a vision 
+                            to transform how brands communicate visually. Based in Ilorin, Nigeria, I've had the 
+                            privilege of working with clients across Africa and beyond, helping them build 
+                            memorable brand identities that resonate with their audiences.
+                        </p>
+                        
+                        <p class="ceo-bio">
+                            My approach combines strategic thinking with artistic excellence, ensuring every design 
+                            not only looks stunning but also achieves business objectives. From startups to 
+                            established enterprises, I bring the same level of passion and dedication to every project.
+                        </p>
+                        
+                        <div class="ceo-stats">
+                            <div class="ceo-stat">
+                                <span class="ceo-stat-number">150+</span>
+                                <span class="ceo-stat-label">Projects</span>
+                            </div>
+                            <div class="ceo-stat">
+                                <span class="ceo-stat-number">50+</span>
+                                <span class="ceo-stat-label">Clients</span>
+                            </div>
+                            <div class="ceo-stat">
+                                <span class="ceo-stat-number">5+</span>
+                                <span class="ceo-stat-label">Years</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ceo-social">
+                            <a href="https://www.facebook.com/profile.php?id=61569993939248" target="_blank" rel="noopener" class="ceo-social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://x.com/Imostar7pro" target="_blank" rel="noopener" class="ceo-social-link" aria-label="Twitter">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mustapha.oniyangiiman" target="_blank" rel="noopener" class="ceo-social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/JEoz9x4GyRF5Ian42Pr3qj" target="_blank" rel="noopener" class="ceo-social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:imanoniyangi5@gmail.com" class="ceo-social-link" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1843,7 +1989,7 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <i class="fas fa-calendar-alt"></i>
+                                <span>📅</span>
                                 January 2026
                             </div>
                             <h3 class="project-title">Nexus Brand Identity</h3>
@@ -1857,11 +2003,11 @@
                                 <span class="project-tag">Identity</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                                View Project <span>→</span>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
-                            <img src="IMG-20260422-WA0003.jpg" 
+                            <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&h=500&fit=crop" 
                                  alt="Nexus Brand Identity" 
                                  class="project-image"
                                  loading="lazy">
@@ -1875,7 +2021,7 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <i class="fas fa-calendar-alt"></i>
+                                <span>📅</span>
                                 December 2025
                             </div>
                             <h3 class="project-title">EcoPack Sustainable</h3>
@@ -1889,11 +2035,11 @@
                                 <span class="project-tag">Print</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                                View Project <span>→</span>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
-                            <img src="IMG-20260403-WA0021.jpg" 
+                            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=500&fit=crop" 
                                  alt="EcoPack Design" 
                                  class="project-image"
                                  loading="lazy">
@@ -1907,8 +2053,8 @@
                         <div class="timeline-dot"></div>
                         <div class="project-content">
                             <div class="project-date">
-                                <i class="fas fa-calendar-alt"></i>
-                                November 2026
+                                <span>📅</span>
+                                November 2025
                             </div>
                             <h3 class="project-title">Motion Flow App</h3>
                             <p class="project-description">
@@ -1921,7 +2067,7 @@
                                 <span class="project-tag">App Design</span>
                             </div>
                             <a href="#" class="project-link">
-                                View Project <i class="fas fa-arrow-right"></i>
+                                View Project <span>→</span>
                             </a>
                         </div>
                         <div class="project-image-wrapper">
@@ -2024,7 +2170,7 @@
         </section>
 
         <!-- Services Section -->
-        <section class="section-padding" id="services" style="background: var(--bg-secondary);">
+        <section class="section-padding services-section" id="services">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Services</span>
@@ -2034,49 +2180,37 @@
                 
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
+                        <div class="service-icon">🎨</div>
                         <h3 class="service-title">Brand Identity</h3>
                         <p class="service-desc">Complete brand systems including logos, color palettes, typography, and brand guidelines that establish memorable market presence.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
+                        <div class="service-icon">💻</div>
                         <h3 class="service-title">UI/UX Design</h3>
                         <p class="service-desc">User-centered interface design for web and mobile applications, focusing on usability, accessibility, and delightful interactions.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-box-open"></i>
-                        </div>
+                        <div class="service-icon">📦</div>
                         <h3 class="service-title">Packaging Design</h3>
                         <p class="service-desc">Eye-catching product packaging that stands out on shelves and communicates brand values through thoughtful design.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
+                        <div class="service-icon">🎬</div>
                         <h3 class="service-title">Motion Graphics</h3>
                         <p class="service-desc">Animated content for social media, advertisements, and presentations that capture attention and convey messages dynamically.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
+                        <div class="service-icon">✏️</div>
                         <h3 class="service-title">Illustration</h3>
                         <p class="service-desc">Custom digital illustrations and vector art for editorial, advertising, and decorative purposes with unique artistic style.</p>
                     </div>
                     
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
+                        <div class="service-icon">🌐</div>
                         <h3 class="service-title">Web Design</h3>
                         <p class="service-desc">Responsive website design with modern aesthetics, optimized performance, and seamless user experiences across all devices.</p>
                     </div>
@@ -2206,7 +2340,7 @@
         </section>
 
         <!-- Testimonials -->
-        <section class="section-padding" id="testimonials" style="background: var(--bg-secondary); overflow: hidden;">
+        <section class="section-padding testimonials-section" id="testimonials">
             <div class="container">
                 <div class="section-header">
                     <span class="section-label">Testimonials</span>
@@ -2220,11 +2354,7 @@
                     <!-- Original set -->
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"AURIX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
                         <div class="testimonial-author">
@@ -2238,11 +2368,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"Working with AURIX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
                         <div class="testimonial-author">
@@ -2256,11 +2382,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
                         <p class="testimonial-text">"The packaging design AURIX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
                         <div class="testimonial-author">
@@ -2274,11 +2396,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"Incredible motion graphics work! AURIX brought our brand story to life with stunning animations that captivated our audience."</p>
                         <div class="testimonial-author">
@@ -2293,11 +2411,7 @@
                     <!-- Duplicate set for infinite scroll -->
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"AURIX transformed our brand completely. The attention to detail and creative vision exceeded all our expectations. Highly recommended!"</p>
                         <div class="testimonial-author">
@@ -2311,11 +2425,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"Working with AURIX was an absolute pleasure. The UI/UX design for our app increased user engagement by 40%. Truly exceptional work."</p>
                         <div class="testimonial-author">
@@ -2329,11 +2439,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                         </div>
                         <p class="testimonial-text">"The packaging design AURIX created for our product line won us several design awards. Creative, professional, and timely delivery."</p>
                         <div class="testimonial-author">
@@ -2347,11 +2453,7 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <p class="testimonial-text">"Incredible motion graphics work! AURIX brought our brand story to life with stunning animations that captivated our audience."</p>
                         <div class="testimonial-author">
@@ -2378,9 +2480,7 @@
                 <div class="contact-wrapper">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                            <div class="contact-icon">📍</div>
                             <div class="contact-details">
                                 <h4>Location</h4>
                                 <p>No.57 Aderemi Adeleye street, GRA<br>Ilorin, Kwara State, Nigeria</p>
@@ -2388,9 +2488,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
+                            <div class="contact-icon">✉️</div>
                             <div class="contact-details">
                                 <h4>Email</h4>
                                 <a href="mailto:imanoniyangi5@gmail.com">imanoniyangi5@gmail.com</a>
@@ -2398,9 +2496,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
+                            <div class="contact-icon">📞</div>
                             <div class="contact-details">
                                 <h4>Phone</h4>
                                 <a href="tel:+2349127161200">+234 912 716 1200</a>
@@ -2408,9 +2504,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
+                            <div class="contact-icon">💬</div>
                             <div class="contact-details">
                                 <h4>WhatsApp</h4>
                                 <a href="https://wa.me/2349127161200" target="_blank">Chat on WhatsApp</a>
@@ -2445,7 +2539,7 @@
                             <textarea class="form-control" id="contactMessage" placeholder="Tell me about your project..." required></textarea>
                         </div>
                         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                            <i class="fas fa-paper-plane"></i>
+                            <span>📤</span>
                             Send Message
                         </button>
                     </form>
@@ -2457,123 +2551,142 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
-                             alt="AURIX" 
-                             class="footer-logo-img"
-                             crossorigin="anonymous">
-                        <span class="footer-logo-text">AURIX</span>
-                    </div>
-                    <p class="footer-desc">
-                        Transforming visions into visual reality. Professional design services 
-                        that elevate brands and create lasting impressions.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/profile.php?id=61569993939248" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/Imostar7pro" target="_blank" rel="noopener" class="footer-social-link" aria-label="Twitter">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/mustapha.oniyangiiman" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://chat.whatsapp.com/JEoz9x4GyRF5Ian42Pr3qj" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://github.com/supremeamerapplication" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://raw.githubusercontent.com/supremeamerapplication/IMOSTAR7/main/IMG-20251123-WA0016.jpg" 
+                         alt="AURIX" 
+                         class="footer-logo-img"
+                         crossorigin="anonymous">
+                    <span class="footer-logo-text">AURIX</span>
                 </div>
                 
-                <div class="footer-section">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <nav class="footer-links">
-                        <a href="#home" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
-                        <a href="#recent-projects" class="footer-link"><i class="fas fa-chevron-right"></i> Recent Projects</a>
-                        <a href="#portfolio" class="footer-link"><i class="fas fa-chevron-right"></i> Portfolio</a>
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Services</a>
-                        <a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
-                    </nav>
+                <p class="footer-desc">
+                    Transforming visions into visual reality. Professional design services 
+                    that elevate brands and create lasting impressions.
+                </p>
+                
+                <!-- Footer Navigation Buttons -->
+                <nav class="footer-nav">
+                    <a href="#home" class="footer-nav-btn">
+                        <span>🏠</span>
+                        HOME
+                    </a>
+                    <a href="#portfolio" class="footer-nav-btn">
+                        <span>💼</span>
+                        PORTFOLIO
+                    </a>
+                    <a href="#contact" class="footer-nav-btn">
+                        <span>📧</span>
+                        CONTACT
+                    </a>
+                </nav>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61569993939248" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/Imostar7pro" target="_blank" rel="noopener" class="footer-social-link" aria-label="Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mustapha.oniyangiiman" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://chat.whatsapp.com/JEoz9x4GyRF5Ian42Pr3qj" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
                 
-                <div class="footer-section">
-                    <h4 class="footer-heading">Services</h4>
-                    <nav class="footer-links">
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Brand Identity</a>
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> UI/UX Design</a>
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Packaging</a>
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Motion Graphics</a>
-                        <a href="#services" class="footer-link"><i class="fas fa-chevron-right"></i> Web Design</a>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-heading">Legal</h4>
-                    <nav class="footer-links">
-                        <a href="#" class="footer-link" onclick="showModal('privacy')"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
-                        <a href="#" class="footer-link" onclick="showModal('terms')"><i class="fas fa-chevron-right"></i> Terms of Service</a>
-                        <a href="#" class="footer-link" onclick="showModal('cookies')"><i class="fas fa-chevron-right"></i> Cookie Policy</a>
-                    </nav>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; <span id="currentYear">2026</span> AURIX Design Studio. All rights reserved. 
+                    © <span id="currentYear">2026</span> AURIX Design Studio. All rights reserved.<br>
                     Crafted by <a href="https://supreme-amerweb.vercel.app" target="_blank" rel="noopener">SupremeAmer</a>
                 </p>
-                <div class="footer-buttons">
-                    <a href="https://vercel.com/new" target="_blank" rel="noopener" class="footer-btn">
-                        <i class="fas fa-rocket"></i> Deploy on Vercel
-                    </a>
-                    <a href="#" class="footer-btn" onclick="window.print()">
-                        <i class="fas fa-print"></i> Print Resume
-                    </a>
-                    <a href="#" class="footer-btn" onclick="shareWebsite()">
-                        <i class="fas fa-share-alt"></i> Share
-                    </a>
-                    <a href="#" class="footer-btn" onclick="showModal('subscribe')">
-                        <i class="fas fa-bell"></i> Subscribe
-                    </a>
-                </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
+        <span>⬆️</span>
     </button>
 
-    <!-- Modal Container -->
-    <div id="modalContainer"></div>
-
     <script>
-        // AURIX Portfolio Application
+        // AURIX Application
         class AurixApp {
             constructor() {
+                this.termsAccepted = false;
                 this.init();
             }
 
             init() {
+                this.checkTerms();
                 this.setupLoading();
                 this.setupTheme();
                 this.setupNavigation();
-                this.setupHeroCanvas();
-                this.setupParticles();
                 this.setupScrollAnimations();
                 this.setupCounters();
                 this.setupSkills();
                 this.setupContactForm();
                 this.setupBackToTop();
-                this.setupCursor();
                 this.setupPWA();
                 this.setupServiceWorker();
-                this.setupFooterButtons();
+            }
+
+            // Check if terms already accepted
+            checkTerms() {
+                const accepted = localStorage.getItem('aurix_terms_accepted');
+                if (accepted === 'true') {
+                    this.termsAccepted = true;
+                    document.getElementById('termsModal').classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    document.body.style.overflow = 'hidden';
+                    this.setupTermsModal();
+                }
+            }
+
+            setupTermsModal() {
+                const checkbox = document.getElementById('termsCheckbox');
+                const acceptBtn = document.getElementById('acceptTermsBtn');
+                
+                checkbox.addEventListener('change', () => {
+                    acceptBtn.disabled = !checkbox.checked;
+                });
+
+                // Prevent closing modal by clicking outside
+                document.getElementById('termsModal').addEventListener('click', (e) => {
+                    if (e.target === document.getElementById('termsModal')) {
+                        this.showToast('Please accept the terms to continue', 'warning');
+                    }
+                });
+            }
+
+            acceptTerms() {
+                this.termsAccepted = true;
+                localStorage.setItem('aurix_terms_accepted', 'true');
+                localStorage.setItem('aurix_terms_date', new Date().toISOString());
+                
+                const modal = document.getElementById('termsModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                this.showToast('Welcome to AURIX! 🎉', 'success');
+                
+                // Trigger install prompt if available
+                if (this.deferredPrompt) {
+                    setTimeout(() => {
+                        document.getElementById('installBtn').classList.add('visible');
+                    }, 2000);
+                }
+            }
+
+            declineTerms() {
+                this.showToast('You must accept the terms to use this application', 'error');
+                // Shake animation on modal
+                const content = document.querySelector('.terms-content');
+                content.style.animation = 'shake 0.5s ease';
+                setTimeout(() => {
+                    content.style.animation = '';
+                }, 500);
             }
 
             setupLoading() {
@@ -2587,20 +2700,19 @@
 
             setupTheme() {
                 const themeToggle = document.getElementById('themeToggle');
-                const icon = themeToggle.querySelector('i');
+                const themeIcon = document.getElementById('themeIcon');
                 
-                // Check saved theme
-                const savedTheme = localStorage.getItem('theme');
+                const savedTheme = localStorage.getItem('aurix_theme');
                 if (savedTheme === 'light') {
                     document.body.classList.add('light-mode');
-                    icon.className = 'fas fa-moon';
+                    themeIcon.textContent = '🌙';
                 }
 
                 themeToggle.addEventListener('click', () => {
                     document.body.classList.toggle('light-mode');
                     const isLight = document.body.classList.contains('light-mode');
-                    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-                    icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                    localStorage.setItem('aurix_theme', isLight ? 'light' : 'dark');
+                    themeIcon.textContent = isLight ? '🌙' : '☀️';
                     this.showToast(`${isLight ? 'Light' : 'Dark'} mode activated`, 'info');
                 });
             }
@@ -2619,7 +2731,6 @@
                         header.classList.remove('scrolled');
                     }
                     
-                    // Back to top
                     const backToTop = document.getElementById('backToTop');
                     if (window.scrollY > 500) {
                         backToTop.classList.add('visible');
@@ -2628,18 +2739,19 @@
                     }
                 });
 
-                // Mobile menu
+                // Mobile menu toggle with emoji
                 menuToggle.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('active');
+                    const isOpen = mobileMenu.classList.toggle('active');
                     mobileOverlay.classList.toggle('active');
-                    const isOpen = mobileMenu.classList.contains('active');
-                    menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    menuToggle.querySelector('span').textContent = isOpen ? '✕' : '☰';
+                    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
                 });
 
                 mobileOverlay.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
                     mobileOverlay.classList.remove('active');
-                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    menuToggle.querySelector('span').textContent = '☰';
+                    document.body.style.overflow = 'auto';
                 });
 
                 // Smooth scroll
@@ -2656,117 +2768,35 @@
                                 behavior: 'smooth'
                             });
                             
-                            // Close mobile menu
                             mobileMenu.classList.remove('active');
                             mobileOverlay.classList.remove('active');
-                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            menuToggle.querySelector('span').textContent = '☰';
+                            document.body.style.overflow = 'auto';
                         }
                     });
                 });
-            }
 
-            setupHeroCanvas() {
-                const canvas = document.getElementById('hero-canvas');
-                const ctx = canvas.getContext('2d');
-                let width, height;
-                let particles = [];
-                let mouse = { x: 0, y: 0 };
-
-                const resize = () => {
-                    width = canvas.width = window.innerWidth;
-                    height = canvas.height = window.innerHeight;
-                };
-
-                resize();
-                window.addEventListener('resize', resize);
-
-                // Create particles
-                for (let i = 0; i < 50; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        radius: Math.random() * 2 + 1,
-                        vx: (Math.random() - 0.5) * 0.5,
-                        vy: (Math.random() - 0.5) * 0.5,
-                        opacity: Math.random() * 0.5 + 0.2
+                // Active nav link on scroll
+                const sections = document.querySelectorAll('section[id]');
+                window.addEventListener('scroll', () => {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        if (window.scrollY >= sectionTop - 200) {
+                            current = section.getAttribute('id');
+                        }
                     });
-                }
-
-                canvas.addEventListener('mousemove', (e) => {
-                    mouse.x = e.clientX;
-                    mouse.y = e.clientY;
-                });
-
-                const animate = () => {
-                    ctx.clearRect(0, 0, width, height);
                     
-                    // Draw gradient background
-                    const gradient = ctx.createLinearGradient(0, 0, width, height);
-                    const isLight = document.body.classList.contains('light-mode');
-                    gradient.addColorStop(0, isLight ? 'rgba(99, 102, 241, 0.05)' : 'rgba(99, 102, 241, 0.1)');
-                    gradient.addColorStop(1, isLight ? 'rgba(236, 72, 153, 0.05)' : 'rgba(236, 72, 153, 0.1)');
-                    ctx.fillStyle = gradient;
-                    ctx.fillRect(0, 0, width, height);
-
-                    // Update and draw particles
-                    particles.forEach((p, i) => {
-                        p.x += p.vx;
-                        p.y += p.vy;
-
-                        if (p.x < 0 || p.x > width) p.vx *= -1;
-                        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                        // Mouse interaction
-                        const dx = mouse.x - p.x;
-                        const dy = mouse.y - p.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 150) {
-                            p.x -= dx * 0.01;
-                            p.y -= dy * 0.01;
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
                         }
-
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(99, 102, 241, ${p.opacity})`;
-                        ctx.fill();
-
-                        // Draw connections
-                        particles.slice(i + 1).forEach(p2 => {
-                            const dx = p.x - p2.x;
-                            const dy = p.y - p2.y;
-                            const dist = Math.sqrt(dx * dx + dy * dy);
-                            
-                            if (dist < 150) {
-                                ctx.beginPath();
-                                ctx.moveTo(p.x, p.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / 150)})`;
-                                ctx.lineWidth = 1;
-                                ctx.stroke();
-                            }
-                        });
                     });
-
-                    requestAnimationFrame(animate);
-                };
-
-                animate();
-            }
-
-            setupParticles() {
-                const container = document.getElementById('particles');
-                for (let i = 0; i < 20; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.animationDelay = `${Math.random() * 20}s`;
-                    particle.style.animationDuration = `${15 + Math.random() * 10}s`;
-                    container.appendChild(particle);
-                }
+                });
             }
 
             animateHero() {
-                // Animate stats counter
                 const stats = document.querySelectorAll('.stat-number');
                 stats.forEach(stat => {
                     const target = parseInt(stat.dataset.count);
@@ -2785,59 +2815,43 @@
             }
 
             setupScrollAnimations() {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('visible');
                         }
                     });
-                }, observerOptions);
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-                document.querySelectorAll('.project-card, .portfolio-item, .service-card').forEach(el => {
-                    observer.observe(el);
-                });
+                document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
 
-                // GSAP ScrollTrigger for advanced animations
                 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                     gsap.registerPlugin(ScrollTrigger);
                     
                     gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
                         gsap.from(item, {
-                            scrollTrigger: {
-                                trigger: item,
-                                start: 'top 85%',
-                                toggleActions: 'play none none reverse'
-                            },
-                            y: 50,
-                            opacity: 0,
-                            duration: 0.6,
-                            delay: i * 0.1
+                            scrollTrigger: { trigger: item, start: 'top 85%' },
+                            y: 50, opacity: 0, duration: 0.6, delay: i * 0.1
                         });
                     });
 
                     gsap.utils.toArray('.service-card').forEach((card, i) => {
                         gsap.from(card, {
-                            scrollTrigger: {
-                                trigger: card,
-                                start: 'top 85%',
-                                toggleActions: 'play none none reverse'
-                            },
-                            y: 30,
-                            opacity: 0,
-                            duration: 0.5,
-                            delay: i * 0.1
+                            scrollTrigger: { trigger: card, start: 'top 85%' },
+                            y: 30, opacity: 0, duration: 0.5, delay: i * 0.1
                         });
+                    });
+
+                    // CEO card animation
+                    gsap.from('.ceo-card', {
+                        scrollTrigger: { trigger: '.ceo-card', start: 'top 80%' },
+                        y: 60, opacity: 0, duration: 1, ease: 'power3.out'
                     });
                 }
             }
 
             setupCounters() {
-                // Already handled in animateHero
+                // Handled in animateHero
             }
 
             setupSkills() {
@@ -2851,15 +2865,19 @@
                     });
                 }, { threshold: 0.5 });
 
-                document.querySelectorAll('.skill-progress').forEach(bar => {
-                    observer.observe(bar);
-                });
+                document.querySelectorAll('.skill-progress').forEach(bar => observer.observe(bar));
             }
 
             setupContactForm() {
                 const form = document.getElementById('contactForm');
                 form.addEventListener('submit', (e) => {
                     e.preventDefault();
+                    
+                    if (!this.termsAccepted) {
+                        this.showToast('Please accept terms first', 'error');
+                        document.getElementById('termsModal').classList.add('active');
+                        return;
+                    }
                     
                     const name = document.getElementById('contactName').value;
                     const email = document.getElementById('contactEmail').value;
@@ -2880,15 +2898,6 @@
                 });
             }
 
-            setupCursor() {
-                const cursor = document.getElementById('cursorGlow');
-                
-                document.addEventListener('mousemove', (e) => {
-                    cursor.style.left = e.clientX + 'px';
-                    cursor.style.top = e.clientY + 'px';
-                });
-            }
-
             setupPWA() {
                 let deferredPrompt;
                 const installBtn = document.getElementById('installBtn');
@@ -2896,7 +2905,12 @@
                 window.addEventListener('beforeinstallprompt', (e) => {
                     e.preventDefault();
                     deferredPrompt = e;
-                    installBtn.classList.add('visible');
+                    this.deferredPrompt = e;
+                    
+                    // Only show if terms accepted
+                    if (this.termsAccepted) {
+                        installBtn.classList.add('visible');
+                    }
                 });
 
                 installBtn.addEventListener('click', async () => {
@@ -2904,7 +2918,7 @@
                         deferredPrompt.prompt();
                         const { outcome } = await deferredPrompt.userChoice;
                         if (outcome === 'accepted') {
-                            this.showToast('App installed successfully!', 'success');
+                            this.showToast('App installed successfully! 🎉', 'success');
                         }
                         deferredPrompt = null;
                         installBtn.classList.remove('visible');
@@ -2912,7 +2926,7 @@
                 });
 
                 window.addEventListener('appinstalled', () => {
-                    this.showToast('AURIX installed successfully!', 'success');
+                    this.showToast('AURIX installed! Enjoy offline access 📱', 'success');
                     installBtn.classList.remove('visible');
                     deferredPrompt = null;
                 });
@@ -2922,33 +2936,90 @@
                 if ('serviceWorker' in navigator) {
                     try {
                         const swCode = `
-                            const CACHE_NAME = 'aurix-v1';
-                            const urlsToCache = [
+                            const CACHE_NAME = 'aurix-v2';
+                            const STATIC_CACHE = 'aurix-static-v2';
+                            const IMAGE_CACHE = 'aurix-images-v2';
+                            const OFFLINE_PAGE = '/offline.html';
+
+                            const STATIC_ASSETS = [
                                 '/',
-                                '/manifest.json'
+                                '/index.html',
+                                '/manifest.json',
+                                '/offline.html'
                             ];
-                            
-                            self.addEventListener('install', event => {
+
+                            self.addEventListener('install', (event) => {
                                 event.waitUntil(
-                                    caches.open(CACHE_NAME)
-                                        .then(cache => cache.addAll(urlsToCache))
+                                    caches.open(STATIC_CACHE)
+                                        .then((cache) => cache.addAll(STATIC_ASSETS))
+                                        .then(() => self.skipWaiting())
                                 );
                             });
-                            
-                            self.addEventListener('fetch', event => {
-                                event.respondWith(
-                                    caches.match(event.request)
-                                        .then(response => {
-                                            if (response) return response;
-                                            return fetch(event.request);
+
+                            self.addEventListener('activate', (event) => {
+                                event.waitUntil(
+                                    caches.keys().then((cacheNames) => {
+                                        return Promise.all(
+                                            cacheNames
+                                                .filter((name) => name.startsWith('aurix-') && !name.includes('v2'))
+                                                .map((name) => caches.delete(name))
+                                        );
+                                    }).then(() => self.clients.claim())
+                                );
+                            });
+
+                            self.addEventListener('fetch', (event) => {
+                                const { request } = event;
+                                if (request.method !== 'GET') return;
+
+                                if (request.mode === 'navigate') {
+                                    event.respondWith(
+                                        fetch(request).catch(() => {
+                                            return caches.match(OFFLINE_PAGE) || caches.match('/index.html');
                                         })
+                                    );
+                                    return;
+                                }
+
+                                if (request.destination === 'image') {
+                                    event.respondWith(
+                                        caches.open(IMAGE_CACHE).then((cache) => {
+                                            return cache.match(request).then((response) => {
+                                                const fetchPromise = fetch(request).then((networkResponse) => {
+                                                    if (networkResponse && networkResponse.status === 200) {
+                                                        cache.put(request, networkResponse.clone());
+                                                    }
+                                                    return networkResponse;
+                                                }).catch(() => response);
+                                                return response || fetchPromise;
+                                            });
+                                        })
+                                    );
+                                    return;
+                                }
+
+                                event.respondWith(
+                                    fetch(request).then((response) => {
+                                        if (response && response.status === 200) {
+                                            const clone = response.clone();
+                                            caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
+                                        }
+                                        return response;
+                                    }).catch(() => {
+                                        return caches.match(request).then((response) => {
+                                            if (response) return response;
+                                            if (request.headers.get('accept').includes('text/html')) {
+                                                return caches.match(OFFLINE_PAGE);
+                                            }
+                                            return new Response('Offline', { status: 503 });
+                                        });
+                                    })
                                 );
                             });
                         `;
                         
                         const blob = new Blob([swCode], { type: 'application/javascript' });
                         const swUrl = URL.createObjectURL(blob);
-                        
                         const registration = await navigator.serviceWorker.register(swUrl);
                         console.log('SW registered:', registration.scope);
                     } catch (error) {
@@ -2957,91 +3028,22 @@
                 }
             }
 
-            setupFooterButtons() {
-                // Share functionality
-                window.shareWebsite = async () => {
-                    if (navigator.share) {
-                        try {
-                            await navigator.share({
-                                title: 'AURIX Design Studio',
-                                text: 'Check out this amazing design portfolio!',
-                                url: window.location.href
-                            });
-                        } catch (err) {
-                            console.log('Share cancelled');
-                        }
-                    } else {
-                        // Fallback - copy to clipboard
-                        navigator.clipboard.writeText(window.location.href);
-                        this.showToast('Link copied to clipboard!', 'success');
-                    }
-                };
-
-                // Modal functionality
-                window.showModal = (type) => {
-                    const modalContainer = document.getElementById('modalContainer');
-                    let content = '';
-                    
-                    switch(type) {
-                        case 'privacy':
-                            content = `
-                                <h2>Privacy Policy</h2>
-                                <p>We value your privacy. This policy outlines how we collect, use, and protect your personal information...</p>
-                            `;
-                            break;
-                        case 'terms':
-                            content = `
-                                <h2>Terms of Service</h2>
-                                <p>By using our services, you agree to these terms. Please read them carefully...</p>
-                            `;
-                            break;
-                        case 'cookies':
-                            content = `
-                                <h2>Cookie Policy</h2>
-                                <p>We use cookies to enhance your browsing experience and analyze our traffic...</p>
-                            `;
-                            break;
-                        case 'subscribe':
-                            content = `
-                                <h2>Subscribe</h2>
-                                <p>Stay updated with our latest projects and design insights. Enter your email below:</p>
-                                <input type="email" placeholder="your@email.com" style="width: 100%; padding: 12px; margin: 16px 0; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-primary);">
-                                <button class="btn-primary" style="width: 100%;" onclick="this.closest('.modal').remove()">Subscribe</button>
-                            `;
-                            break;
-                    }
-                    
-                    modalContainer.innerHTML = `
-                        <div class="modal" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 20px;" onclick="if(event.target === this) this.remove()">
-                            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 40px; max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative;">
-                                <button onclick="this.closest('.modal').remove()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                                ${content}
-                            </div>
-                        </div>
-                    `;
-                };
-            }
-
             showToast(message, type = 'success') {
                 const container = document.getElementById('toastContainer');
                 const toast = document.createElement('div');
                 toast.className = `toast toast-${type}`;
                 
                 const icons = {
-                    success: 'fa-check-circle',
-                    error: 'fa-exclamation-circle',
-                    warning: 'fa-exclamation-triangle',
-                    info: 'fa-info-circle'
+                    success: '✅',
+                    error: '❌',
+                    warning: '⚠️',
+                    info: 'ℹ️'
                 };
                 
-                toast.innerHTML = `<i class="fas ${icons[type] || icons.success}"></i> ${message}`;
+                toast.innerHTML = `<span>${icons[type] || '✅'}</span> ${message}`;
                 container.appendChild(toast);
                 
-                requestAnimationFrame(() => {
-                    toast.classList.add('show');
-                });
+                requestAnimationFrame(() => toast.classList.add('show'));
                 
                 setTimeout(() => {
                     toast.classList.remove('show');
@@ -3050,21 +3052,35 @@
             }
         }
 
+        // Global functions for terms modal
+        function acceptTerms() {
+            window.aurixApp.acceptTerms();
+        }
+
+        function declineTerms() {
+            window.aurixApp.declineTerms();
+        }
+
+        function showPrivacyDetail() {
+            window.aurixApp.showToast('Privacy Policy: We only store preferences locally', 'info');
+        }
+
+        function showTermsDetail() {
+            window.aurixApp.showToast('Terms: All content is copyrighted', 'info');
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            new AurixApp();
-            
-            // Update copyright year
+            window.aurixApp = new AurixApp();
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
 
-        // Online/Offline detection
+        // Online/Offline
         window.addEventListener('online', () => {
-            if (window.aurixApp) window.aurixApp.showToast('Back online!', 'success');
+            if (window.aurixApp) window.aurixApp.showToast('Back online! 🌐', 'success');
         });
-
         window.addEventListener('offline', () => {
-            if (window.aurixApp) window.aurixApp.showToast('You are offline', 'warning');
+            if (window.aurixApp) window.aurixApp.showToast('You are offline 📵', 'warning');
         });
     </script>
 </body>
