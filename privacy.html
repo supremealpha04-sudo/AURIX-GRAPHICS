@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | AUREX Design Studio</title>
+    <meta name="description" content="Privacy Policy for AUREX - Professional Graphic Design Studio">
+    <meta name="author" content="AUREX">
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="AUREX">
+    
+    <link rel="icon" href="https://github.com/supremeamerapplication/IMOSTAR7/blob/main/IMG-20250901-WA0014.jpg?raw=true" type="image/jpeg">
+    <link rel="apple-touch-icon" href="https://github.com/supremeamerapplication/IMOSTAR7/blob/main/IMG-20251123-WA0016.jpg?raw=true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #4CAF50;
+            --accent: #03A9F4;
+            --text-color: #2D2D2D;
+            --body-bg: #FFFFFF;
+            --card-bg: #FFFFFF;
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --footer-bg: #2D2D2D;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --radius: 16px;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+        body.dark-mode {
+            --text-color: #F8F9FA;
+            --body-bg: #121212;
+            --card-bg: #1E1E1E;
+            --header-bg: rgba(30, 30, 30, 0.98);
+            --footer-bg: #0D0D0D;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            transition: all 0.4s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--header-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 24px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+        .privacy-content {
+            padding: 80px 0;
+        }
+        .privacy-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+        }
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            color: var(--text-color);
+        }
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin: 20px 0 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .last-updated {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .back-home {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer {
+            background: var(--footer-bg);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .privacy-card { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">
+                    <img src="https://github.com/supremeamerapplication/IMOSTAR7/blob/main/IMG-20251123-WA0016.jpg?raw=true" alt="AUREX Logo" class="logo-img">
+                    <span class="logo-text">AUREX</span>
+                </a>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/#portfolio" class="nav-link">Portfolio</a>
+                    <a href="/#contact" class="nav-link">Contact</a>
+                    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="privacy-content">
+        <div class="container">
+            <div class="privacy-card">
+                <h1>Privacy Policy</h1>
+                <div class="last-updated"><i class="fas fa-calendar-alt"></i> Last Updated: January 1, 2025</div>
+
+                <p>At AUREX Design Studio, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information.</p>
+
+                <h2>1. Information We Collect</h2>
+                <ul>
+                    <li><strong>Personal Information:</strong> Name, email address, phone number you provide via contact form</li>
+                    <li><strong>Usage Data:</strong> IP address, browser type, pages visited</li>
+                    <li><strong>Cookies:</strong> Small data files for better user experience</li>
+                </ul>
+
+                <h2>2. How We Use Your Information</h2>
+                <ul>
+                    <li>Respond to your inquiries and provide customer support</li>
+                    <li>Improve our website and services</li>
+                    <li>Process your project requests</li>
+                    <li>Comply with legal obligations</li>
+                </ul>
+
+                <h2>3. Sharing Your Information</h2>
+                <p>We do not sell, trade, or rent your personal information to third parties. We may share information only with your consent or to comply with legal requirements.</p>
+
+                <h2>4. Data Security</h2>
+                <p>We implement appropriate security measures to protect your personal information. However, no internet transmission is 100% secure.</p>
+
+                <h2>5. Your Rights</h2>
+                <p>You have the right to access, correct, or delete your personal information. Contact us at: <strong>imanoniyangi5@gmail.com</strong></p>
+
+                <h2>6. Cookies</h2>
+                <p>We use cookies to enhance your browsing experience. You can control cookie settings through your browser preferences.</p>
+
+                <h2>7. Contact Us</h2>
+                <ul>
+                    <li><strong>Email:</strong> imanoniyangi5@gmail.com</li>
+                    <li><strong>Phone:</strong> +2349127161200</li>
+                    <li><strong>Address:</strong> No.57 Aderemi Adeleye street, GRA, Ilorin, Kwara, Nigeria</li>
+                </ul>
+
+                <hr>
+                <div class="back-home">
+                    <a href="/" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> AUREX Design Studio. All rights reserved.</p>
+            <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+    </script>
+</body>
+</html>
