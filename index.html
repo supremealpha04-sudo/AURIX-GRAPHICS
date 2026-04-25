@@ -9,7 +9,7 @@
     
     <!-- SEO Meta Tags -->
     <title>AUREX | Creative Design Studio & Portfolio</title>
-    <meta name="description" content="AUREX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions. Transforming visions into visual reality.">
+    <meta name="description" content="AUREX - Professional Graphic Design Studio specializing in Brand Identity, UI/UX Design, Motion Graphics, and Creative Solutions.">
     <meta name="keywords" content="AUREX, graphic designer, branding, logo design, UI/UX, packaging design, motion graphics, web design, creative studio">
     <meta name="author" content="AUREX">
     <meta name="robots" content="index, follow">
@@ -1438,8 +1438,8 @@
         .terms-modal {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
             z-index: 100000;
             display: flex;
             align-items: center;
@@ -1447,7 +1447,7 @@
             padding: 20px;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-base);
+            transition: opacity 0.4s ease, visibility 0.4s ease;
         }
         .terms-modal.active {
             opacity: 1;
@@ -1459,13 +1459,13 @@
             border-radius: var(--radius-xl);
             max-width: 600px;
             width: 100%;
-            max-height: 85vh;
+            max-height: 90vh;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transform: scale(0.9) translateY(20px);
+            transform: scale(0.9) translateY(30px);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
         .terms-modal.active .terms-content {
             transform: scale(1) translateY(0);
@@ -1526,13 +1526,20 @@
             align-items: flex-start;
             gap: 12px;
             cursor: pointer;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            transition: background 0.3s ease;
         }
-        .terms-checkbox input {
-            width: 20px;
-            height: 20px;
+        .terms-checkbox:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+        .terms-checkbox input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
             margin-top: 2px;
             accent-color: var(--primary);
             cursor: pointer;
+            flex-shrink: 0;
         }
         .terms-checkbox span {
             font-size: 0.9rem;
@@ -1542,6 +1549,7 @@
         .terms-checkbox a {
             color: var(--primary);
             text-decoration: none;
+            font-weight: 600;
         }
         .terms-checkbox a:hover {
             text-decoration: underline;
@@ -1556,9 +1564,10 @@
             justify-content: center;
         }
         .terms-actions .btn-primary:disabled {
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
             transform: none;
+            filter: grayscale(0.5);
         }
 
         /* ===== INSTALL BUTTON ===== */
@@ -1757,7 +1766,12 @@
                 padding: 24px;
             }
             .terms-content {
-                max-height: 90vh;
+                max-height: 95vh;
+                border-radius: var(--radius-lg);
+            }
+            .terms-header, .terms-body, .terms-footer {
+                padding-left: 20px;
+                padding-right: 20px;
             }
             .loading-logo {
                 font-size: 2.5rem;
@@ -1770,6 +1784,13 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
+        }
+
+        /* Shake animation for decline */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
         }
     </style>
 </head>
@@ -1797,10 +1818,10 @@
                     <h3><i class="fas fa-user-shield"></i> Privacy Policy</h3>
                     <p>We value your privacy. This website uses local storage to remember your preferences (theme, accepted terms) and service workers to enable offline functionality. We do not collect personal data without your consent.</p>
                     <ul>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> Local storage is used for app preferences only</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> No tracking cookies or analytics without consent</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> Contact form data is sent directly to WhatsApp</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> You can clear all data by uninstalling the app</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> Local storage is used for app preferences only</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> No tracking cookies or analytics without consent</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> Contact form data is sent directly to WhatsApp</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> You can clear all data by uninstalling the app</li>
                     </ul>
                 </div>
                 
@@ -1808,10 +1829,10 @@
                     <h3><i class="fas fa-file-contract"></i> Terms of Service</h3>
                     <p>By using AUREX, you agree to the following terms:</p>
                     <ul>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> All portfolio content is copyrighted material</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> Contact information is for business inquiries only</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> This app may be installed on your device for offline access</li>
-                        <li><i class="fas fa-check" style="color: var(--success);"></i> We reserve the right to update these terms at any time</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> All portfolio content is copyrighted material</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> Contact information is for business inquiries only</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> This app may be installed on your device for offline access</li>
+                        <li><i class="fas fa-check" style="color: var(--success); margin-right: 6px;"></i> We reserve the right to update these terms at any time</li>
                     </ul>
                 </div>
                 
@@ -1822,15 +1843,15 @@
             </div>
             
             <div class="terms-footer">
-                <label class="terms-checkbox">
+                <label class="terms-checkbox" id="termsCheckboxLabel">
                     <input type="checkbox" id="termsCheckbox">
-                    <span>I have read and agree to the <a href="#" onclick="showPrivacyDetail()">Privacy Policy</a> and <a href="#" onclick="showTermsDetail()">Terms of Service</a>. I understand this app may be installed on my device.</span>
+                    <span>I have read and agree to the <a href="#" onclick="event.preventDefault(); showPrivacyDetail();">Privacy Policy</a> and <a href="#" onclick="event.preventDefault(); showTermsDetail();">Terms of Service</a>. I understand this app may be installed on my device.</span>
                 </label>
                 <div class="terms-actions">
-                    <button class="btn-secondary" onclick="declineTerms()">
+                    <button type="button" class="btn-secondary" id="declineBtn">
                         <i class="fas fa-times"></i> Decline
                     </button>
-                    <button class="btn-primary" id="acceptTermsBtn" disabled onclick="acceptTerms()">
+                    <button type="button" class="btn-primary" id="acceptTermsBtn" disabled>
                         <i class="fas fa-check"></i> Accept & Continue
                     </button>
                 </div>
@@ -1842,7 +1863,7 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- Install Button -->
-    <button class="install-btn" id="installBtn">
+    <button class="install-btn" id="installBtn" type="button">
         <i class="fas fa-download"></i>
         Install App
     </button>
@@ -1891,10 +1912,10 @@
                 </div>
                 
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" type="button">
                         <i class="fas fa-sun" id="themeIcon"></i>
                     </button>
-                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" type="button">
                         <i class="fas fa-bars" id="menuIcon"></i>
                     </button>
                 </div>
@@ -2649,470 +2670,678 @@
     </footer>
 
     <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // AUREX Application
-        class AurexApp {
-            constructor() {
-                this.termsAccepted = false;
-                this.init();
-            }
+        // ============================================
+        // AUREX APPLICATION - FIXED TERMS & CONDITIONS
+        // ============================================
 
-            init() {
-                this.checkTerms();
-                this.setupLoading();
-                this.setupTheme();
-                this.setupNavigation();
-                this.setupScrollAnimations();
-                this.setupCounters();
-                this.setupSkills();
-                this.setupContactForm();
-                this.setupBackToTop();
-                this.setupPWA();
-                this.setupServiceWorker();
-            }
+        (function() {
+            'use strict';
 
-            checkTerms() {
-                const accepted = localStorage.getItem('aurex_terms_accepted');
-                if (accepted === 'true') {
-                    this.termsAccepted = true;
-                    document.getElementById('termsModal').classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                } else {
-                    document.body.style.overflow = 'hidden';
-                    this.setupTermsModal();
-                }
-            }
+            // Global app reference
+            window.aurexApp = null;
 
-            setupTermsModal() {
-                const checkbox = document.getElementById('termsCheckbox');
-                const acceptBtn = document.getElementById('acceptTermsBtn');
-                
-                checkbox.addEventListener('change', () => {
-                    acceptBtn.disabled = !checkbox.checked;
-                });
+            // ============================================
+            // TOAST NOTIFICATION SYSTEM
+            // ============================================
+            function showToast(message, type) {
+                type = type || 'success';
+                var container = document.getElementById('toastContainer');
+                if (!container) return;
 
-                document.getElementById('termsModal').addEventListener('click', (e) => {
-                    if (e.target === document.getElementById('termsModal')) {
-                        this.showToast('Please accept the terms to continue', 'warning');
-                    }
-                });
-            }
+                var toast = document.createElement('div');
+                toast.className = 'toast toast-' + type;
 
-            acceptTerms() {
-                this.termsAccepted = true;
-                localStorage.setItem('aurex_terms_accepted', 'true');
-                localStorage.setItem('aurex_terms_date', new Date().toISOString());
-                
-                const modal = document.getElementById('termsModal');
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                
-                this.showToast('Welcome to AUREX!', 'success');
-                
-                if (this.deferredPrompt) {
-                    setTimeout(() => {
-                        document.getElementById('installBtn').classList.add('visible');
-                    }, 2000);
-                }
-            }
-
-            declineTerms() {
-                this.showToast('You must accept the terms to use this application', 'error');
-                const content = document.querySelector('.terms-content');
-                content.style.animation = 'shake 0.5s ease';
-                setTimeout(() => {
-                    content.style.animation = '';
-                }, 500);
-            }
-
-            setupLoading() {
-                window.addEventListener('load', () => {
-                    setTimeout(() => {
-                        document.getElementById('loadingScreen').classList.add('hidden');
-                        this.animateHero();
-                    }, 2500);
-                });
-            }
-
-            setupTheme() {
-                const themeToggle = document.getElementById('themeToggle');
-                const themeIcon = document.getElementById('themeIcon');
-                
-                const savedTheme = localStorage.getItem('aurex_theme');
-                if (savedTheme === 'light') {
-                    document.body.classList.add('light-mode');
-                    themeIcon.className = 'fas fa-moon';
-                }
-
-                themeToggle.addEventListener('click', () => {
-                    document.body.classList.toggle('light-mode');
-                    const isLight = document.body.classList.contains('light-mode');
-                    localStorage.setItem('aurex_theme', isLight ? 'light' : 'dark');
-                    themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
-                    this.showToast(`${isLight ? 'Light' : 'Dark'} mode activated`, 'info');
-                });
-            }
-
-            setupNavigation() {
-                const header = document.getElementById('header');
-                const menuToggle = document.getElementById('menuToggle');
-                const menuIcon = document.getElementById('menuIcon');
-                const mobileMenu = document.getElementById('mobileMenu');
-                const mobileOverlay = document.getElementById('mobileOverlay');
-                
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                    
-                    const backToTop = document.getElementById('backToTop');
-                    if (window.scrollY > 500) {
-                        backToTop.classList.add('visible');
-                    } else {
-                        backToTop.classList.remove('visible');
-                    }
-                });
-
-                menuToggle.addEventListener('click', () => {
-                    const isOpen = mobileMenu.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
-                    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-                });
-
-                mobileOverlay.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    menuIcon.className = 'fas fa-bars';
-                    document.body.style.overflow = 'auto';
-                });
-
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const target = document.querySelector(anchor.getAttribute('href'));
-                        if (target) {
-                            const headerHeight = header.offsetHeight;
-                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                            
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: 'smooth'
-                            });
-                            
-                            mobileMenu.classList.remove('active');
-                            mobileOverlay.classList.remove('active');
-                            menuIcon.className = 'fas fa-bars';
-                            document.body.style.overflow = 'auto';
-                        }
-                    });
-                });
-
-                const sections = document.querySelectorAll('section[id]');
-                window.addEventListener('scroll', () => {
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        if (window.scrollY >= sectionTop - 200) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-                    
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${current}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                });
-            }
-
-            animateHero() {
-                const stats = document.querySelectorAll('.stat-number');
-                stats.forEach(stat => {
-                    const target = parseInt(stat.dataset.count);
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            stat.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            stat.textContent = Math.floor(current);
-                        }
-                    }, 30);
-                });
-            }
-
-            setupScrollAnimations() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-                document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
-
-                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-                    gsap.registerPlugin(ScrollTrigger);
-                    
-                    gsap.utils.toArray('.portfolio-item').forEach((item, i) => {
-                        gsap.from(item, {
-                            scrollTrigger: { trigger: item, start: 'top 85%' },
-                            y: 50, opacity: 0, duration: 0.6, delay: i * 0.1
-                        });
-                    });
-
-                    gsap.utils.toArray('.service-card').forEach((card, i) => {
-                        gsap.from(card, {
-                            scrollTrigger: { trigger: card, start: 'top 85%' },
-                            y: 30, opacity: 0, duration: 0.5, delay: i * 0.1
-                        });
-                    });
-
-                    gsap.from('.ceo-card', {
-                        scrollTrigger: { trigger: '.ceo-card', start: 'top 80%' },
-                        y: 60, opacity: 0, duration: 1, ease: 'power3.out'
-                    });
-                }
-            }
-
-            setupSkills() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const progress = entry.target;
-                            const width = progress.dataset.width;
-                            progress.style.width = `${width}%`;
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                document.querySelectorAll('.skill-progress').forEach(bar => observer.observe(bar));
-            }
-
-            setupContactForm() {
-                const form = document.getElementById('contactForm');
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    if (!this.termsAccepted) {
-                        this.showToast('Please accept terms first', 'error');
-                        document.getElementById('termsModal').classList.add('active');
-                        return;
-                    }
-                    
-                    const name = document.getElementById('contactName').value;
-                    const email = document.getElementById('contactEmail').value;
-                    const type = document.getElementById('contactType').value;
-                    const message = document.getElementById('contactMessage').value;
-                    
-                    const whatsappText = `Hello! I'm ${name}%0A%0AEmail: ${email}%0AService: ${type}%0A%0AMessage:%0A${message}`;
-                    window.open(`https://wa.me/2349127161200?text=${whatsappText}`, '_blank');
-                    
-                    this.showToast('Opening WhatsApp...', 'success');
-                    form.reset();
-                });
-            }
-
-            setupBackToTop() {
-                document.getElementById('backToTop').addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            setupPWA() {
-                let deferredPrompt;
-                const installBtn = document.getElementById('installBtn');
-
-                window.addEventListener('beforeinstallprompt', (e) => {
-                    e.preventDefault();
-                    deferredPrompt = e;
-                    this.deferredPrompt = e;
-                    
-                    if (this.termsAccepted) {
-                        installBtn.classList.add('visible');
-                    }
-                });
-
-                installBtn.addEventListener('click', async () => {
-                    if (deferredPrompt) {
-                        deferredPrompt.prompt();
-                        const { outcome } = await deferredPrompt.userChoice;
-                        if (outcome === 'accepted') {
-                            this.showToast('App installed successfully!', 'success');
-                        }
-                        deferredPrompt = null;
-                        installBtn.classList.remove('visible');
-                    }
-                });
-
-                window.addEventListener('appinstalled', () => {
-                    this.showToast('AUREX installed! Enjoy offline access', 'success');
-                    installBtn.classList.remove('visible');
-                    deferredPrompt = null;
-                });
-            }
-
-            async setupServiceWorker() {
-                if ('serviceWorker' in navigator) {
-                    try {
-                        const swCode = `
-                            const CACHE_NAME = 'aurex-v1';
-                            const STATIC_CACHE = 'aurex-static-v1';
-                            const IMAGE_CACHE = 'aurex-images-v1';
-                            const OFFLINE_PAGE = '/offline.html';
-
-                            const STATIC_ASSETS = [
-                                '/',
-                                '/index.html',
-                                '/manifest.json',
-                                '/offline.html'
-                            ];
-
-                            self.addEventListener('install', (event) => {
-                                event.waitUntil(
-                                    caches.open(STATIC_CACHE)
-                                        .then((cache) => cache.addAll(STATIC_ASSETS))
-                                        .then(() => self.skipWaiting())
-                                );
-                            });
-
-                            self.addEventListener('activate', (event) => {
-                                event.waitUntil(
-                                    caches.keys().then((cacheNames) => {
-                                        return Promise.all(
-                                            cacheNames
-                                                .filter((name) => name.startsWith('aurex-') && !name.includes('v1'))
-                                                .map((name) => caches.delete(name))
-                                        );
-                                    }).then(() => self.clients.claim())
-                                );
-                            });
-
-                            self.addEventListener('fetch', (event) => {
-                                const { request } = event;
-                                if (request.method !== 'GET') return;
-
-                                if (request.mode === 'navigate') {
-                                    event.respondWith(
-                                        fetch(request).catch(() => {
-                                            return caches.match(OFFLINE_PAGE) || caches.match('/index.html');
-                                        })
-                                    );
-                                    return;
-                                }
-
-                                if (request.destination === 'image') {
-                                    event.respondWith(
-                                        caches.open(IMAGE_CACHE).then((cache) => {
-                                            return cache.match(request).then((response) => {
-                                                const fetchPromise = fetch(request).then((networkResponse) => {
-                                                    if (networkResponse && networkResponse.status === 200) {
-                                                        cache.put(request, networkResponse.clone());
-                                                    }
-                                                    return networkResponse;
-                                                }).catch(() => response);
-                                                return response || fetchPromise;
-                                            });
-                                        })
-                                    );
-                                    return;
-                                }
-
-                                event.respondWith(
-                                    fetch(request).then((response) => {
-                                        if (response && response.status === 200) {
-                                            const clone = response.clone();
-                                            caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
-                                        }
-                                        return response;
-                                    }).catch(() => {
-                                        return caches.match(request).then((response) => {
-                                            if (response) return response;
-                                            if (request.headers.get('accept').includes('text/html')) {
-                                                return caches.match(OFFLINE_PAGE);
-                                            }
-                                            return new Response('Offline', { status: 503 });
-                                        });
-                                    })
-                                );
-                            });
-                        `;
-                        
-                        const blob = new Blob([swCode], { type: 'application/javascript' });
-                        const swUrl = URL.createObjectURL(blob);
-                        const registration = await navigator.serviceWorker.register(swUrl);
-                        console.log('SW registered:', registration.scope);
-                    } catch (error) {
-                        console.log('SW registration failed:', error);
-                    }
-                }
-            }
-
-            showToast(message, type = 'success') {
-                const container = document.getElementById('toastContainer');
-                const toast = document.createElement('div');
-                toast.className = `toast toast-${type}`;
-                
-                const icons = {
+                var icons = {
                     success: '<i class="fas fa-check-circle"></i>',
                     error: '<i class="fas fa-times-circle"></i>',
                     warning: '<i class="fas fa-exclamation-triangle"></i>',
                     info: '<i class="fas fa-info-circle"></i>'
                 };
-                
-                toast.innerHTML = `${icons[type] || icons.success} ${message}`;
+
+                toast.innerHTML = (icons[type] || icons.success) + ' ' + message;
                 container.appendChild(toast);
-                
-                requestAnimationFrame(() => toast.classList.add('show'));
-                
-                setTimeout(() => {
+
+                // Force reflow
+                toast.offsetHeight;
+
+                requestAnimationFrame(function() {
+                    toast.classList.add('show');
+                });
+
+                setTimeout(function() {
                     toast.classList.remove('show');
-                    setTimeout(() => toast.remove(), 400);
+                    setTimeout(function() {
+                        if (toast.parentNode) toast.parentNode.removeChild(toast);
+                    }, 400);
                 }, 3000);
+            }
+
+            // ============================================
+            // TERMS & CONDITIONS MODULE
+            // ============================================
+            var TermsModule = {
+                accepted: false,
+                modal: null,
+                checkbox: null,
+                acceptBtn: null,
+                declineBtn: null,
+
+                init: function() {
+                    this.modal = document.getElementById('termsModal');
+                    this.checkbox = document.getElementById('termsCheckbox');
+                    this.acceptBtn = document.getElementById('acceptTermsBtn');
+                    this.declineBtn = document.getElementById('declineBtn');
+
+                    if (!this.modal || !this.checkbox || !this.acceptBtn || !this.declineBtn) {
+                        console.error('Terms elements not found!');
+                        return false;
+                    }
+
+                    // Check if already accepted
+                    var stored = localStorage.getItem('aurex_terms_accepted');
+                    if (stored === 'true') {
+                        this.accepted = true;
+                        this.hideModal();
+                        return true;
+                    }
+
+                    // Show modal and lock scroll
+                    this.showModal();
+                    this.bindEvents();
+                    return false;
+                },
+
+                bindEvents: function() {
+                    var self = this;
+
+                    // Checkbox change handler
+                    this.checkbox.addEventListener('change', function() {
+                        self.acceptBtn.disabled = !this.checked;
+                    });
+
+                    // Accept button click handler
+                    this.acceptBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        self.accept();
+                    });
+
+                    // Decline button click handler
+                    this.declineBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        self.decline();
+                    });
+
+                    // Prevent closing by clicking outside
+                    this.modal.addEventListener('click', function(e) {
+                        if (e.target === self.modal) {
+                            showToast('Please accept the terms to continue', 'warning');
+                        }
+                    });
+
+                    // Prevent Escape key from closing
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && self.modal.classList.contains('active')) {
+                            e.preventDefault();
+                            showToast('Please accept the terms to continue', 'warning');
+                        }
+                    });
+                },
+
+                accept: function() {
+                    if (!this.checkbox.checked) {
+                        showToast('Please check the checkbox first', 'warning');
+                        return;
+                    }
+
+                    this.accepted = true;
+                    localStorage.setItem('aurex_terms_accepted', 'true');
+                    localStorage.setItem('aurex_terms_date', new Date().toISOString());
+
+                    this.hideModal();
+                    showToast('Welcome to AUREX! Enjoy your experience.', 'success');
+
+                    // Trigger install prompt if available
+                    if (window.aurexApp && window.aurexApp.deferredPrompt) {
+                        setTimeout(function() {
+                            var installBtn = document.getElementById('installBtn');
+                            if (installBtn) installBtn.classList.add('visible');
+                        }, 2000);
+                    }
+                },
+
+                decline: function() {
+                    showToast('You must accept the terms to use this application', 'error');
+
+                    // Shake animation
+                    var content = this.modal.querySelector('.terms-content');
+                    if (content) {
+                        content.style.animation = 'none';
+                        content.offsetHeight; // Force reflow
+                        content.style.animation = 'shake 0.5s ease';
+                        setTimeout(function() {
+                            content.style.animation = '';
+                        }, 500);
+                    }
+
+                    // Uncheck checkbox
+                    this.checkbox.checked = false;
+                    this.acceptBtn.disabled = true;
+                },
+
+                showModal: function() {
+                    if (this.modal) {
+                        this.modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                },
+
+                hideModal: function() {
+                    if (this.modal) {
+                        this.modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                },
+
+                reset: function() {
+                    localStorage.removeItem('aurex_terms_accepted');
+                    localStorage.removeItem('aurex_terms_date');
+                    this.accepted = false;
+                    this.checkbox.checked = false;
+                    this.acceptBtn.disabled = true;
+                    this.showModal();
+                }
+            };
+
+            // ============================================
+            // THEME MODULE
+            // ============================================
+            var ThemeModule = {
+                toggle: null,
+                icon: null,
+
+                init: function() {
+                    this.toggle = document.getElementById('themeToggle');
+                    this.icon = document.getElementById('themeIcon');
+
+                    if (!this.toggle || !this.icon) return;
+
+                    var savedTheme = localStorage.getItem('aurex_theme');
+                    if (savedTheme === 'light') {
+                        document.body.classList.add('light-mode');
+                        this.icon.className = 'fas fa-moon';
+                    }
+
+                    this.toggle.addEventListener('click', this.handleToggle.bind(this));
+                },
+
+                handleToggle: function() {
+                    document.body.classList.toggle('light-mode');
+                    var isLight = document.body.classList.contains('light-mode');
+                    localStorage.setItem('aurex_theme', isLight ? 'light' : 'dark');
+                    this.icon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+                    showToast((isLight ? 'Light' : 'Dark') + ' mode activated', 'info');
+                }
+            };
+
+            // ============================================
+            // NAVIGATION MODULE
+            // ============================================
+            var NavModule = {
+                header: null,
+                menuToggle: null,
+                menuIcon: null,
+                mobileMenu: null,
+                mobileOverlay: null,
+
+                init: function() {
+                    this.header = document.getElementById('header');
+                    this.menuToggle = document.getElementById('menuToggle');
+                    this.menuIcon = document.getElementById('menuIcon');
+                    this.mobileMenu = document.getElementById('mobileMenu');
+                    this.mobileOverlay = document.getElementById('mobileOverlay');
+
+                    if (!this.header || !this.menuToggle || !this.mobileMenu) return;
+
+                    // Scroll handler
+                    window.addEventListener('scroll', this.handleScroll.bind(this));
+
+                    // Menu toggle
+                    this.menuToggle.addEventListener('click', this.toggleMenu.bind(this));
+                    this.mobileOverlay.addEventListener('click', this.closeMenu.bind(this));
+
+                    // Smooth scroll for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                        anchor.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                var headerHeight = document.getElementById('header').offsetHeight;
+                                var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                            }
+                            // Close mobile menu if open
+                            if (document.getElementById('mobileMenu').classList.contains('active')) {
+                                document.getElementById('mobileMenu').classList.remove('active');
+                                document.getElementById('mobileOverlay').classList.remove('active');
+                                document.getElementById('menuIcon').className = 'fas fa-bars';
+                                document.body.style.overflow = '';
+                            }
+                        });
+                    });
+                },
+
+                handleScroll: function() {
+                    if (window.scrollY > 50) {
+                        this.header.classList.add('scrolled');
+                    } else {
+                        this.header.classList.remove('scrolled');
+                    }
+
+                    var backToTop = document.getElementById('backToTop');
+                    if (backToTop) {
+                        if (window.scrollY > 500) {
+                            backToTop.classList.add('visible');
+                        } else {
+                            backToTop.classList.remove('visible');
+                        }
+                    }
+                },
+
+                toggleMenu: function() {
+                    var isOpen = this.mobileMenu.classList.toggle('active');
+                    this.mobileOverlay.classList.toggle('active');
+                    this.menuIcon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                },
+
+                closeMenu: function() {
+                    this.mobileMenu.classList.remove('active');
+                    this.mobileOverlay.classList.remove('active');
+                    this.menuIcon.className = 'fas fa-bars';
+                    document.body.style.overflow = '';
+                }
+            };
+
+            // ============================================
+            // LOADING SCREEN MODULE
+            // ============================================
+            var LoadingModule = {
+                init: function() {
+                    var self = this;
+                    window.addEventListener('load', function() {
+                        setTimeout(function() {
+                            var loadingScreen = document.getElementById('loadingScreen');
+                            if (loadingScreen) {
+                                loadingScreen.classList.add('hidden');
+                            }
+                            self.animateHero();
+                        }, 2500);
+                    });
+                },
+
+                animateHero: function() {
+                    var stats = document.querySelectorAll('.stat-number');
+                    stats.forEach(function(stat) {
+                        var target = parseInt(stat.dataset.count);
+                        var current = 0;
+                        var increment = target / 50;
+                        var timer = setInterval(function() {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current);
+                            }
+                        }, 30);
+                    });
+                }
+            };
+
+            // ============================================
+            // SKILLS MODULE
+            // ============================================
+            var SkillsModule = {
+                init: function() {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                var progress = entry.target;
+                                var width = progress.dataset.width;
+                                if (width) {
+                                    progress.style.width = width + '%';
+                                }
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    document.querySelectorAll('.skill-progress').forEach(function(bar) {
+                        observer.observe(bar);
+                    });
+                }
+            };
+
+            // ============================================
+            // CONTACT FORM MODULE
+            // ============================================
+            var ContactModule = {
+                init: function() {
+                    var form = document.getElementById('contactForm');
+                    if (!form) return;
+
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        if (!TermsModule.accepted) {
+                            showToast('Please accept terms first', 'error');
+                            TermsModule.showModal();
+                            return;
+                        }
+
+                        var name = document.getElementById('contactName').value;
+                        var email = document.getElementById('contactEmail').value;
+                        var type = document.getElementById('contactType').value;
+                        var message = document.getElementById('contactMessage').value;
+
+                        var whatsappText = 'Hello! I\'m ' + encodeURIComponent(name) + '%0A%0AEmail: ' + encodeURIComponent(email) + '%0AService: ' + encodeURIComponent(type) + '%0A%0AMessage:%0A' + encodeURIComponent(message);
+                        window.open('https://wa.me/2349127161200?text=' + whatsappText, '_blank');
+
+                        showToast('Opening WhatsApp...', 'success');
+                        form.reset();
+                    });
+                }
+            };
+
+            // ============================================
+            // BACK TO TOP MODULE
+            // ============================================
+            var BackToTopModule = {
+                init: function() {
+                    var btn = document.getElementById('backToTop');
+                    if (!btn) return;
+
+                    btn.addEventListener('click', function() {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                }
+            };
+
+            // ============================================
+            // PWA INSTALL MODULE
+            // ============================================
+            var PwaModule = {
+                deferredPrompt: null,
+                installBtn: null,
+
+                init: function() {
+                    this.installBtn = document.getElementById('installBtn');
+                    var self = this;
+
+                    window.addEventListener('beforeinstallprompt', function(e) {
+                        e.preventDefault();
+                        self.deferredPrompt = e;
+
+                        if (TermsModule.accepted && self.installBtn) {
+                            self.installBtn.classList.add('visible');
+                        }
+                    });
+
+                    if (this.installBtn) {
+                        this.installBtn.addEventListener('click', function() {
+                            self.install();
+                        });
+                    }
+
+                    window.addEventListener('appinstalled', function() {
+                        showToast('AUREX installed! Enjoy offline access', 'success');
+                        if (self.installBtn) self.installBtn.classList.remove('visible');
+                        self.deferredPrompt = null;
+                    });
+                },
+
+                install: function() {
+                    if (!this.deferredPrompt) return;
+
+                    var self = this;
+                    this.deferredPrompt.prompt();
+                    this.deferredPrompt.userChoice.then(function(choiceResult) {
+                        if (choiceResult.outcome === 'accepted') {
+                            showToast('App installed successfully!', 'success');
+                        }
+                        self.deferredPrompt = null;
+                        if (self.installBtn) self.installBtn.classList.remove('visible');
+                    });
+                }
+            };
+
+            // ============================================
+            // SCROLL ANIMATIONS MODULE
+            // ============================================
+            var ScrollAnimModule = {
+                init: function() {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            }
+                        });
+                    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+                    document.querySelectorAll('.project-card').forEach(function(el) {
+                        observer.observe(el);
+                    });
+
+                    // GSAP animations if available
+                    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                        gsap.registerPlugin(ScrollTrigger);
+
+                        gsap.utils.toArray('.portfolio-item').forEach(function(item, i) {
+                            gsap.from(item, {
+                                scrollTrigger: { trigger: item, start: 'top 85%' },
+                                y: 50, opacity: 0, duration: 0.6, delay: i * 0.1
+                            });
+                        });
+
+                        gsap.utils.toArray('.service-card').forEach(function(card, i) {
+                            gsap.from(card, {
+                                scrollTrigger: { trigger: card, start: 'top 85%' },
+                                y: 30, opacity: 0, duration: 0.5, delay: i * 0.1
+                            });
+                        });
+
+                        gsap.from('.ceo-card', {
+                            scrollTrigger: { trigger: '.ceo-card', start: 'top 80%' },
+                            y: 60, opacity: 0, duration: 1, ease: 'power3.out'
+                        });
+                    }
+                }
+            };
+
+            // ============================================
+            // SERVICE WORKER MODULE
+            // ============================================
+            var SwModule = {
+                init: function() {
+                    if (!('serviceWorker' in navigator)) return;
+
+                    var swCode = `
+                        const CACHE_NAME = 'aurex-v1';
+                        const STATIC_CACHE = 'aurex-static-v1';
+                        const IMAGE_CACHE = 'aurex-images-v1';
+                        const OFFLINE_PAGE = '/offline.html';
+
+                        const STATIC_ASSETS = [
+                            '/',
+                            '/index.html',
+                            '/manifest.json',
+                            '/offline.html'
+                        ];
+
+                        self.addEventListener('install', (event) => {
+                            event.waitUntil(
+                                caches.open(STATIC_CACHE)
+                                    .then((cache) => cache.addAll(STATIC_ASSETS))
+                                    .then(() => self.skipWaiting())
+                            );
+                        });
+
+                        self.addEventListener('activate', (event) => {
+                            event.waitUntil(
+                                caches.keys().then((cacheNames) => {
+                                    return Promise.all(
+                                        cacheNames
+                                            .filter((name) => name.startsWith('aurex-') && !name.includes('v1'))
+                                            .map((name) => caches.delete(name))
+                                    );
+                                }).then(() => self.clients.claim())
+                            );
+                        });
+
+                        self.addEventListener('fetch', (event) => {
+                            const { request } = event;
+                            if (request.method !== 'GET') return;
+
+                            if (request.mode === 'navigate') {
+                                event.respondWith(
+                                    fetch(request).catch(() => {
+                                        return caches.match(OFFLINE_PAGE) || caches.match('/index.html');
+                                    })
+                                );
+                                return;
+                            }
+
+                            if (request.destination === 'image') {
+                                event.respondWith(
+                                    caches.open(IMAGE_CACHE).then((cache) => {
+                                        return cache.match(request).then((response) => {
+                                            const fetchPromise = fetch(request).then((networkResponse) => {
+                                                if (networkResponse && networkResponse.status === 200) {
+                                                    cache.put(request, networkResponse.clone());
+                                                }
+                                                return networkResponse;
+                                            }).catch(() => response);
+                                            return response || fetchPromise;
+                                        });
+                                    })
+                                );
+                                return;
+                            }
+
+                            event.respondWith(
+                                fetch(request).then((response) => {
+                                    if (response && response.status === 200) {
+                                        const clone = response.clone();
+                                        caches.open(STATIC_CACHE).then((cache) => cache.put(request, clone));
+                                    }
+                                    return response;
+                                }).catch(() => {
+                                    return caches.match(request).then((response) => {
+                                        if (response) return response;
+                                        if (request.headers.get('accept').includes('text/html')) {
+                                            return caches.match(OFFLINE_PAGE);
+                                        }
+                                        return new Response('Offline', { status: 503 });
+                                    });
+                                })
+                            );
+                        });
+                    `;
+
+                    var blob = new Blob([swCode], { type: 'application/javascript' });
+                    var swUrl = URL.createObjectURL(blob);
+
+                    navigator.serviceWorker.register(swUrl)
+                        .then(function(registration) {
+                            console.log('SW registered:', registration.scope);
+                        })
+                        .catch(function(error) {
+                            console.log('SW registration failed:', error);
+                        });
+                }
+            };
+
+            // ============================================
+            // MAIN APP INITIALIZATION
+            // ============================================
+            function initApp() {
+                // Initialize all modules
+                var termsReady = TermsModule.init();
+                ThemeModule.init();
+                NavModule.init();
+                LoadingModule.init();
+                SkillsModule.init();
+                ContactModule.init();
+                BackToTopModule.init();
+                PwaModule.init();
+                ScrollAnimModule.init();
+                SwModule.init();
+
+                // Update copyright year
+                var yearEl = document.getElementById('currentYear');
+                if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+                // Expose app reference
+                window.aurexApp = {
+                    terms: TermsModule,
+                    pwa: PwaModule,
+                    deferredPrompt: PwaModule.deferredPrompt,
+                    showToast: showToast
+                };
+
+                console.log('AUREX App initialized. Terms accepted:', termsReady);
+            }
+
+            // Start the app when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initApp);
+            } else {
+                initApp();
+            }
+
+            // Online/Offline handlers
+            window.addEventListener('online', function() {
+                showToast('Back online!', 'success');
+            });
+            window.addEventListener('offline', function() {
+                showToast('You are offline', 'warning');
+            });
+
+        })();
+
+        // ============================================
+        // GLOBAL FUNCTIONS (exposed for HTML onclick)
+        // ============================================
+
+        function acceptTerms() {
+            if (window.aurexApp && window.aurexApp.terms) {
+                window.aurexApp.terms.accept();
             }
         }
 
-        // Global functions for terms modal
-        function acceptTerms() {
-            window.aurexApp.acceptTerms();
-        }
-
         function declineTerms() {
-            window.aurexApp.declineTerms();
+            if (window.aurexApp && window.aurexApp.terms) {
+                window.aurexApp.terms.decline();
+            }
         }
 
         function showPrivacyDetail() {
-            window.aurexApp.showToast('Privacy Policy: We only store preferences locally', 'info');
+            if (window.aurexApp) {
+                window.aurexApp.showToast('Privacy Policy: We only store preferences locally', 'info');
+            }
         }
 
         function showTermsDetail() {
-            window.aurexApp.showToast('Terms: All content is copyrighted', 'info');
+            if (window.aurexApp) {
+                window.aurexApp.showToast('Terms: All content is copyrighted', 'info');
+            }
         }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            window.aurexApp = new AurexApp();
-            document.getElementById('currentYear').textContent = new Date().getFullYear();
-        });
-
-        // Online/Offline
-        window.addEventListener('online', () => {
-            if (window.aurexApp) window.aurexApp.showToast('Back online!', 'success');
-        });
-        window.addEventListener('offline', () => {
-            if (window.aurexApp) window.aurexApp.showToast('You are offline', 'warning');
-        });
     </script>
 </body>
 </html>
